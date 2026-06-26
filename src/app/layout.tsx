@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LeadCapture from "@/components/LeadCapture";
+import MobileStickyCTA from "@/components/MobileStickyCTA";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -39,9 +40,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <ThemeProvider>
           <Navbar />
-          <main className="flex-grow pt-8 pb-16">{children}</main>
+          <main className="flex-grow pt-8 pb-20 md:pb-16">{children}</main>
           <Footer />
           <LeadCapture />
+          <MobileStickyCTA />
         </ThemeProvider>
       </body>
     </html>

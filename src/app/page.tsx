@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
-import { ArrowRight, Eye, MessageSquare, Zap, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowRight, Eye, MessageSquare, Zap, Sparkles, TrendingUp, User, Globe, Inbox, Phone, CheckCircle, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import HeroBackground from "@/components/HeroBackground";
 import HeroFloatingCards from "@/components/HeroFloatingCards";
@@ -12,6 +12,7 @@ import HeroFloatingCards from "@/components/HeroFloatingCards";
 export default function Home() {
   const { theme } = useTheme();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   
   // Highlight specific projects on the landing page
   const featuredProjects = portfolioConfig.projects.filter(p =>
@@ -57,14 +58,14 @@ export default function Home() {
               </Link>
               
               <Link
-                href="/contact"
+                href="/about"
                 className={`w-full sm:w-auto inline-flex items-center justify-center h-12 rounded-xl border font-semibold px-6 transition-all duration-200 cursor-pointer ${
                   theme === "dark"
                     ? "bg-slate-900/60 hover:bg-slate-900 text-slate-200 border-slate-800 hover:border-slate-700 backdrop-blur-md"
                     : "bg-white/80 hover:bg-white text-slate-700 border-slate-200 hover:border-slate-300 backdrop-blur-md"
                 }`}
               >
-                Let's Talk
+                See How It Works
               </Link>
             </div>
 
@@ -95,9 +96,10 @@ export default function Home() {
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading text-center mb-10">
-              Is This You?
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold font-heading text-center">Sound Familiar?</h2>
+            <p className={`text-sm text-center mt-3 mb-10 ${
+              theme === "dark" ? "text-slate-400" : "text-slate-600"
+            }`}>You might need this if...</p>
             <div className={`p-8 sm:p-10 rounded-2xl border ${
               theme === "dark" ? "bg-slate-900/30 border-slate-800" : "bg-white border-slate-200 shadow-sm"
             }`}>
@@ -110,9 +112,7 @@ export default function Home() {
                   "You're spending too much time on admin instead of serving clients.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start space-x-3">
-                    <span className={`flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                      theme === "dark" ? "bg-brand-blue/20 text-brand-blue" : "bg-brand-blue/10 text-brand-blue"
-                    }`}>{i + 1}</span>
+                    <CheckCircle className="flex-shrink-0 h-5 w-5 text-brand-blue mt-0.5" />
                     <span className={`text-sm sm:text-base leading-relaxed ${
                       theme === "dark" ? "text-slate-300" : "text-slate-700"
                     }`}>{item}</span>
@@ -138,13 +138,13 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading">
-              What I Solve For You
-            </h2>
+              <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+                How I Help You Grow
+              </h2>
             <p className={`text-sm mt-3 ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
-              Websites and systems that bring in leads, organise enquiries, and automate your operations.
+              Three growth systems, one purpose: more paying customers.
             </p>
           </div>
 
@@ -156,14 +156,14 @@ export default function Home() {
                 ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
                 : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
             }`}>
-              <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-6 shadow-sm">
+              <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 shadow-sm">
                 <Eye className="h-6 w-6" />
               </div>
               <h3 className="text-lg font-bold font-heading mb-3">Lead-Generating Websites</h3>
               <p className={`text-sm leading-relaxed ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}>
-                SEO-optimised websites that rank on Google and turn visitors into customers — no referral fees or ads needed.
+                SEO-optimised websites that rank on Google and bring in customers directly.
               </p>
             </div>
 
@@ -173,14 +173,14 @@ export default function Home() {
                 ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
                 : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
             }`}>
-              <div className="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-6 shadow-sm">
+              <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 shadow-sm">
                 <MessageSquare className="h-6 w-6" />
               </div>
               <h3 className="text-lg font-bold font-heading mb-3">Enquiry Management</h3>
               <p className={`text-sm leading-relaxed ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}>
-                Booking portals and enquiry capture systems that organise every lead — no more leads lost in DMs or spreadsheets.
+                Booking portals and enquiry capture systems that organise every lead — from first contact to close.
               </p>
             </div>
 
@@ -206,7 +206,7 @@ export default function Home() {
       </section>
 
       {/* Why Work With Me */}
-      <section className={`py-16 sm:py-20 border-y ${
+      <section className={`py-14 sm:py-16 border-y ${
         theme === "dark" ? "bg-slate-950/20 border-slate-900" : "bg-slate-50/50 border-slate-250"
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -217,19 +217,21 @@ export default function Home() {
             <p className={`text-sm mt-3 ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
-              Three reasons businesses choose to build with me.
+              Built differently so your business grows differently.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { title: "Custom Built, Not Templated", desc: "Every system is built from the ground up for your specific business. No WordPress themes, no page builders — just purpose-built software tailored to how you operate.", icon: "🛠️" },
-              { title: "Fast Communication", desc: "You get a direct line to the person building your system. No account managers, no runaround. Questions answered within hours, not days.", icon: "⚡" },
-              { title: "End-to-End Service", desc: "From strategy to design to development to launch — I handle everything. Your website or automation system ships complete and ready to grow your business.", icon: "🎯" },
+              { title: "Custom Built, Not Templated", desc: "Every system is built from the ground up for your specific business. No WordPress themes, no page builders — just purpose-built software tailored to how you operate.", icon: Wrench },
+              { title: "Fast Communication", desc: "You get a direct line to the person building your system. No account managers, no runaround. Questions answered within hours, not days.", icon: ZapIcon },
+              { title: "End-to-End Service", desc: "From strategy to design to development to launch — I handle everything. Your website or automation system ships complete and ready to grow your business.", icon: Target },
             ].map((item) => (
               <div key={item.title} className={`p-8 rounded-2xl border text-center ${
                 theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
               }`}>
-                <div className="text-3xl mb-4">{item.icon}</div>
+                <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mx-auto mb-4">
+                  <item.icon className="h-6 w-6" />
+                </div>
                 <h3 className="text-base font-bold font-heading mb-2">{item.title}</h3>
                 <p className={`text-sm leading-relaxed ${
                   theme === "dark" ? "text-slate-400" : "text-slate-600"
@@ -252,26 +254,26 @@ export default function Home() {
             <p className={`text-sm mt-3 ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
-              A complete growth system — from first click to closed customer.
+              From audit to automation in five steps.
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
             {[
-              { label: "Visitor", icon: "👤", desc: "Finds you on Google" },
-              { label: "Website", icon: "🌐", desc: "Converts with SEO & clear CTAs" },
-              { label: "Enquiry", icon: "📥", desc: "Captured and organised instantly" },
-              { label: "Follow-up", icon: "📞", desc: "Automated reminders & responses" },
-              { label: "Customer", icon: "✅", desc: "Closed and delighted" },
+              { label: "Visitor", icon: User, desc: "Finds you on Google" },
+              { label: "Website", icon: Globe, desc: "Converts with SEO & clear CTAs" },
+              { label: "Enquiry", icon: Inbox, desc: "Captured and organised instantly" },
+              { label: "Follow-up", icon: Phone, desc: "Automated reminders & responses" },
+              { label: "Customer", icon: CheckCircle, desc: "Closed and delighted" },
             ].map((step, i) => (
               <React.Fragment key={step.label}>
                 <div className="flex flex-col items-center text-center px-3">
-                  <div className={`h-20 w-20 rounded-2xl flex items-center justify-center text-3xl mb-3 border-2 ${
+                  <div className={`h-20 w-20 rounded-2xl flex items-center justify-center border-2 mb-3 ${
                     theme === "dark"
-                      ? "bg-slate-900/60 border-slate-800"
-                      : "bg-white border-slate-200 shadow-sm"
+                      ? "bg-slate-900/60 border-slate-800 text-brand-blue"
+                      : "bg-white border-slate-200 shadow-sm text-brand-blue"
                   }`}>
-                    {step.icon}
+                    <step.icon className="h-9 w-9" />
                   </div>
                   <p className="text-sm font-bold font-heading">{step.label}</p>
                   <p className={`text-[11px] mt-0.5 ${
@@ -286,6 +288,58 @@ export default function Home() {
                   </div>
                 )}
               </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className={`py-16 sm:py-20 ${
+        theme === "dark" ? "bg-slate-950/20" : "bg-slate-50/50"
+      }`}>
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+              Frequently Asked Questions
+            </h2>
+            <p className={`text-sm mt-3 ${
+              theme === "dark" ? "text-slate-400" : "text-slate-600"
+            }`}>
+              Everything you need to know before we start.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {[
+              { q: "How long does it take to build a website or system?", a: "Most lead-generation websites take 2-3 weeks from kickoff to launch. More complex systems (booking portals, automation dashboards) typically take 4-6 weeks. I'll give you a precise timeline after our discovery call." },
+              { q: "What does a typical project cost?", a: "Projects range from ₦300,000 for a lead-generation website to ₦2,000,000+ for an advanced business automation system. I'll provide a fixed-price quote after understanding your needs — no surprises, no hidden fees." },
+              { q: "What happens after we start working together?", a: "We begin with a strategy call to map out your goals, then I design and build your system in stages. You'll see progress throughout and have direct input at every milestone." },
+              { q: "Do you offer ongoing support after launch?", a: "Yes. Every project includes a handover period where I ensure everything runs smoothly. Ongoing maintenance and updates are available on a retainer basis." },
+              { q: "What do you need from me to get started?", a: "Just a clear picture of your business and what you want to achieve. I'll handle the strategy, design, development, and launch — you focus on running your business." },
+            ].map((faq, i) => (
+              <div key={i} className={`rounded-xl border overflow-hidden transition-all duration-200 ${
+                theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200"
+              }`}>
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className={`w-full flex items-center justify-between px-6 py-4 text-left text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+                    theme === "dark" ? "text-slate-200 hover:text-white" : "text-slate-800 hover:text-slate-900"
+                  }`}
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown className={`h-4 w-4 text-brand-blue transition-transform duration-200 flex-shrink-0 ml-4 ${
+                    openFaq === i ? "rotate-180" : ""
+                  }`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-200 ${
+                  openFaq === i ? "pb-4 max-h-40" : "max-h-0 pb-0"
+                }`}>
+                  <p className={`text-sm leading-relaxed ${
+                    theme === "dark" ? "text-slate-400" : "text-slate-600"
+                  }`}>
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -323,15 +377,10 @@ export default function Home() {
                   : "bg-white border-slate-200 hover:border-brand-blue/20"
               }`}
             >
-              {/* Project Card Header (Stylized Mock Screen) */}
+                {/* Project Card Header */}
               <div className={`p-4 border-b flex items-center justify-between ${
                 theme === "dark" ? "bg-slate-950/40 border-slate-800" : "bg-slate-50 border-slate-150"
               }`}>
-                <div className="flex items-center space-x-2">
-                  <div className="h-3 w-3 rounded-full bg-red-500/80" />
-                  <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
-                  <div className="h-3 w-3 rounded-full bg-green-500/80" />
-                </div>
                 <span className={`text-xs font-mono font-medium rounded-full px-2.5 py-1 ${
                   theme === "dark" ? "bg-slate-800 text-slate-350" : "bg-slate-200/60 text-slate-600"
                 }`}>
@@ -346,17 +395,14 @@ export default function Home() {
                   alt={project.title}
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute top-3 left-3 bg-brand-blue text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-md">
+                  {project.impact}
+                </div>
               </div>
 
               {/* Project Details */}
               <div className="p-8 flex-grow flex flex-col justify-between space-y-6">
                 <div>
-                  {/* Impact Metric Banner */}
-                  <div className="inline-flex items-center space-x-1.5 rounded-lg px-2.5 py-1 text-xs font-semibold text-brand-blue bg-brand-blue/10 mb-4">
-                    <TrendingUp className="h-3.5 w-3.5" />
-                    <span>{project.impact}</span>
-                  </div>
-                  
                   <h3 className="text-xl font-bold font-heading mb-2.5">
                     {project.title}
                   </h3>
@@ -385,17 +431,69 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <Link
+                  <div className="flex items-center gap-3">
+                    <Link
                     href={`/projects#${project.id}`}
                     className="inline-flex items-center space-x-1 text-sm font-semibold text-brand-blue hover:underline cursor-pointer"
                   >
                     <span>Read Case Study</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1 text-sm font-semibold text-slate-400 hover:text-slate-200 transition-colors duration-200 cursor-pointer"
+                  >
+                    <span>View Live Site</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className={`py-16 sm:py-20 border-y ${
+        theme === "dark" ? "bg-slate-950/20 border-slate-900" : "bg-slate-50/50 border-slate-200"
+      }`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+              What Clients Say
+            </h2>
+            <p className={`text-sm mt-3 ${
+              theme === "dark" ? "text-slate-400" : "text-slate-600"
+            }`}>
+              Real feedback from real projects.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {[
+              { quote: "This is nice and beautiful", name: "Eyitayo Oloruntoba", role: "Founder, Joyix Ushering Agency" },
+              { quote: "Really like this, it demonstrates my projects perfectly", name: "Ebenezer Abegunde", role: "Founder, CPAW Studio" },
+            ].map((t) => (
+              <div key={t.name} className={`p-8 rounded-2xl border ${
+                theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
+              }`}>
+                <Quote className="h-6 w-6 text-brand-blue/30 mb-4" />
+                <p className={`text-base leading-relaxed italic mb-6 ${
+                  theme === "dark" ? "text-slate-300" : "text-slate-700"
+                }`}>
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div>
+                  <p className="text-sm font-bold font-heading">{t.name}</p>
+                  <p className={`text-xs ${
+                    theme === "dark" ? "text-slate-500" : "text-slate-400"
+                  }`}>{t.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -410,21 +508,24 @@ export default function Home() {
           <div className="absolute top-0 right-0 -z-10 h-80 w-80 rounded-full bg-brand-blue/10 blur-[100px]" />
           
           <div className="max-w-xl space-y-4">
-            <h2 className="text-3xl font-bold font-heading">
-              Ready to turn your website into a lead-generating machine?
-            </h2>
+              <h2 className="text-3xl font-bold font-heading">
+                Ready to build a system that grows your business?
+              </h2>
             <p className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
               Let's build a dedicated portal that brings in enquiries, manages them from start to finish, and automates the operations that eat up your day.
             </p>
           </div>
 
-          <div className="w-full lg:w-auto">
+          <div className="w-full lg:w-auto text-center">
             <Link
               href="/contact"
               className="w-full lg:w-auto inline-flex h-14 items-center justify-center rounded-2xl bg-brand-blue px-8 text-base font-bold text-white shadow-lg hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_25px_rgba(0,64,192,0.4)] hover:scale-[1.02]"
             >
-              Start Your Free Consultation
+              Book a Strategy Call
             </Link>
+            <p className={`text-xs mt-3 ${theme === "dark" ? "text-slate-500" : "text-slate-400"}`}>
+              Projects from ₦300,000 · Custom quote for your business
+            </p>
           </div>
         </div>
       </section>

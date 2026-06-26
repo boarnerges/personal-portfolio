@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
-import { Mail, Send, AlertCircle, CheckCircle2, Sparkles, MapPin } from "lucide-react";
+import { Mail, Send, AlertCircle, CheckCircle2, Sparkles, MapPin, Calendar } from "lucide-react";
 
 export default function Contact() {
   const { theme } = useTheme();
@@ -68,6 +68,33 @@ export default function Contact() {
         
         {/* Left Side: Contact Cards & Digital Location */}
         <div className="lg:col-span-5 space-y-8">
+          {/* Book a Call */}
+          <div className={`rounded-2xl border p-6 ${
+            theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200"
+          }`}>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
+                <Calendar className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold font-heading">Prefer to talk first?</h3>
+                <p className={`text-xs ${theme === "dark" ? "text-slate-400" : "text-slate-500"}`}>
+                  Book a free discovery call
+                </p>
+              </div>
+            </div>
+            <p className={`text-sm mb-4 ${theme === "dark" ? "text-slate-400" : "text-slate-600"}`}>
+              30-minute call to discuss your business needs and see if we're a good fit.
+            </p>
+            <a
+              href="mailto:olujawo1996@gmail.com?subject=Discovery%20Call%20Request"
+              className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer"
+            >
+              <Calendar className="h-4 w-4 mr-2" />
+              Book a Discovery Call
+            </a>
+          </div>
+
           <div className="space-y-4">
             <h2 className="text-xl font-bold font-heading">Contact Details</h2>
             <p className={`text-sm ${theme === "dark" ? "text-slate-455" : "text-slate-600"}`}>

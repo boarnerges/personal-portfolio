@@ -51,7 +51,7 @@ export default function About() {
       <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
         <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-blue bg-brand-blue/10 border border-brand-blue/20">
           <Sparkles className="h-3.5 w-3.5" />
-          <span>About Me</span>
+          <span>How I Work</span>
         </div>
         <h1 className="text-4xl font-bold tracking-tight font-heading">
           Custom Software for Service Businesses
@@ -111,7 +111,7 @@ export default function About() {
                 : "border-slate-300 text-slate-700 hover:bg-slate-50"
             }`}
           >
-            <span>Let's Talk</span>
+            <span>Book a Call</span>
           </Link>
         </div>
       </div>

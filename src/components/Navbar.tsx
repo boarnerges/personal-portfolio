@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeContext";
-import { Sun, Moon, Menu, X, Code2 } from "lucide-react";
+import { Sun, Moon, Menu, X, LayoutDashboard } from "lucide-react";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -13,9 +13,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
+    { name: "How I Work", href: "/about" },
     { name: "Case Studies", href: "/projects" },
-    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -34,7 +33,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue group-hover:scale-105 transition-transform duration-200 shadow-[0_0_15px_rgba(0,64,192,0.15)]">
-            <Code2 className="h-5.5 w-5.5" />
+            <LayoutDashboard className="h-5.5 w-5.5" />
           </div>
           <span className="text-xl font-bold tracking-tight font-heading">
             Segun<span className="text-brand-blue glow-text-blue">.O</span>
@@ -82,7 +81,7 @@ export default function Navbar() {
             href="/contact"
             className="inline-flex h-10 items-center justify-center rounded-xl bg-brand-blue px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_15px_rgba(0,64,192,0.3)] hover:scale-[1.02]"
           >
-            Let's Talk
+            Book a Call
           </Link>
         </div>
 
@@ -155,7 +154,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex w-full items-center justify-center rounded-xl bg-brand-blue py-3 text-base font-semibold text-white shadow-md hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer"
                 >
-                  Let's Talk
+                  Book a Call
                 </Link>
               </div>
             </div>

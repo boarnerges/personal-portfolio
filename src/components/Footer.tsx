@@ -33,11 +33,6 @@ export default function Footer() {
             }`}>
               {portfolioConfig.personal.tagline}
             </p>
-            <p className={`text-xs leading-relaxed max-w-xs ${
-              theme === "dark" ? "text-slate-500" : "text-slate-400"
-            }`}>
-              Helping service businesses turn visitors into customers through websites and automation.
-            </p>
           </div>
 
           {/* Core Focus Info */}

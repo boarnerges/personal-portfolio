@@ -77,7 +77,7 @@ export default function Projects() {
           </span>
           <input
             type="text"
-            placeholder="Search case studies or stack..."
+            placeholder="Search case studies..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className={`w-full pl-10 pr-4 py-2 text-sm rounded-xl outline-none transition-all duration-200 border ${
@@ -239,7 +239,7 @@ export default function Projects() {
                           <h4 className={`text-xs font-semibold uppercase tracking-wider ${
                             theme === "dark" ? "text-slate-400" : "text-slate-550"
                           }`}>
-                            Technologies Employed
+                            Key Capabilities
                           </h4>
                           <div className="flex flex-wrap gap-1.5">
                             {project.tags.map((tag) => (
