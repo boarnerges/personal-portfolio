@@ -16,6 +16,7 @@ export default function LeadCapture() {
     const handleScroll = () => {
       if (window.scrollY > window.innerHeight * 1.2) {
         setVisible(true);
+        setMinimized(true);
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });

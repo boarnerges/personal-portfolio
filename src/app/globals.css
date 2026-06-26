@@ -17,12 +17,22 @@
 :root {
   --background: #f8fafc; /* slate-50 */
   --foreground: #0f172a; /* slate-900 */
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-text-primary: #1e293b;
+  --card-text-secondary: #64748b;
+  --card-text-muted: #94a3b8;
 }
 
 /* Class-based dark variant manually configured for Tailwind */
 .dark {
   --background: #03060e; /* near-black with subtle navy */
   --foreground: #f8fafc; /* slate-50 */
+  --card-bg: #0f172a;
+  --card-border: #1e293b;
+  --card-text-primary: #e2e8f0;
+  --card-text-secondary: #94a3b8;
+  --card-text-muted: #64748b;
 }
 
 body {

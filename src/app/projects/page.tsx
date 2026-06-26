@@ -201,10 +201,15 @@ export default function Projects() {
                                   <span>{icon}</span>
                                   <span>{title}</span>
                                 </h4>
-                                <p className={`text-sm leading-relaxed ${
+                                <p className={`text-sm leading-relaxed whitespace-pre-line ${
                                   theme === "dark" ? "text-slate-350" : "text-slate-650"
                                 }`}>
-                                  {body}
+                                  {body.split(/(\*\*.*?\*\*)/).map((part, i) => {
+                                    if (part.startsWith('**') && part.endsWith('**')) {
+                                      return <strong key={i} className="text-slate-900 dark:text-white">{part.slice(2, -2)}</strong>;
+                                    }
+                                    return part;
+                                  })}
                                 </p>
                               </div>
                             );

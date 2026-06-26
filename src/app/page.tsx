@@ -47,7 +47,7 @@ export default function Home() {
       <div className="absolute top-1/3 right-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-brand-warm/5 blur-[100px] dark:bg-brand-warm/10" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen lg:min-h-[90vh] flex flex-col justify-center overflow-hidden">
+      <section className="relative min-h-screen lg:min-h-[90vh] flex flex-col justify-center">
         {/* Background Image & Overlays */}
         <div className="absolute inset-0 z-0">
           <HeroBackground />
@@ -302,10 +302,12 @@ export default function Home() {
                 </div>
                 {i < 4 && (
                   <>
-                    <div className={`hidden md:flex items-center ${
-                      theme === "dark" ? "text-slate-600" : "text-slate-300"
+                    <div className={`hidden md:flex items-center justify-center h-10 w-10 rounded-full border-2 ${
+                      theme === "dark"
+                        ? "border-slate-800 text-slate-600 bg-slate-900/40"
+                        : "border-slate-200 text-slate-400 bg-white shadow-sm"
                     }`}>
-                      <ArrowRight className="h-5 w-5" />
+                      <ArrowRight className="h-4 w-4" />
                     </div>
                     <div className="md:hidden h-8 w-px border-l-2 border-dashed" />
                   </>

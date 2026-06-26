@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeContext";
@@ -14,16 +14,14 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
-    { name: "Home", href: "/" },
     { name: "How I Work", href: "/about" },
-    { name: "Case Studies", href: "/projects" },
     { name: "Contact", href: "/contact" },
   ];
 
   const services = [
-    { name: "Lead-Generating Websites", href: "/" },
-    { name: "Enquiry Management", href: "/" },
-    { name: "Business Automation", href: "/" },
+    { name: "Lead-Generating Websites", href: "/about" },
+    { name: "Enquiry Management", href: "/about" },
+    { name: "Business Automation", href: "/about" },
   ];
 
   const isActive = (href: string) => {
@@ -52,64 +50,78 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => {
-            if (link.name === "Case Studies") {
-              return (
-                <div key="services" className="relative"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
-                >
-                  <button
-                    className={`flex items-center space-x-1 text-sm font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
-                      servicesOpen
-                        ? "text-brand-blue"
-                        : theme === "dark"
-                        ? "text-slate-400 hover:text-white"
-                        : "text-slate-600 hover:text-slate-900"
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`text-sm font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
+                isActive(link.href)
+                  ? "text-brand-blue"
+                  : theme === "dark"
+                  ? "text-slate-400 hover:text-white"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+
+          {/* Services Dropdown */}
+          <div className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button
+              className={`appearance-none border-0 p-0 bg-transparent cursor-pointer text-sm font-medium tracking-wide transition-colors duration-200 leading-5 ${
+                servicesOpen
+                  ? "text-brand-blue"
+                  : theme === "dark"
+                  ? "text-slate-400 hover:text-white"
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <span className="inline-flex items-center space-x-1">
+                <span>Services</span>
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
+              </span>
+            </button>
+            {servicesOpen && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 z-50">
+                <div className={`rounded-xl shadow-xl border overflow-hidden ${
+                  theme === "dark" ? "bg-slate-950 border-slate-800" : "bg-white border-slate-200"
+                }`}>
+                {services.map((s) => (
+                  <Link
+                    key={s.name}
+                    href={s.href}
+                    className={`block px-5 py-3 text-sm font-medium transition-colors duration-150 ${
+                      theme === "dark"
+                        ? "text-slate-300 hover:bg-slate-900 hover:text-white"
+                        : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
                     }`}
                   >
-                    <span>Services</span>
-                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  {servicesOpen && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl shadow-xl border overflow-hidden z-50 ${
-                      theme === "dark" ? "bg-slate-950 border-slate-800" : "bg-white border-slate-200"
-                    }`}>
-                      {services.map((s) => (
-                        <Link
-                          key={s.name}
-                          href={s.href}
-                          className={`block px-5 py-3 text-sm font-medium transition-colors duration-150 ${
-                            theme === "dark"
-                              ? "text-slate-300 hover:bg-slate-900 hover:text-white"
-                              : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
-                          }`}
-                        >
-                          {s.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                    {s.name}
+                  </Link>
+                ))}
                 </div>
-              );
-            }
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
-                  isActive(link.href)
-                    ? "text-brand-blue"
-                    : theme === "dark"
-                    ? "text-slate-400 hover:text-white"
-                    : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </div>
+              </div>
+            )}
+          </div>
+
+          {/* Case Studies — prominent */}
+          <Link
+            href="/projects"
+            className={`inline-flex items-center h-8 px-4 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
+              isActive("/projects")
+                ? "bg-brand-blue text-white"
+                : theme === "dark"
+                ? "bg-brand-blue/10 text-brand-blue hover:bg-brand-blue/20"
+                : "bg-brand-blue/10 text-brand-blue hover:bg-brand-blue/20"
+            }`}
+          >
+            Case Studies
+          </Link>
+          </div>
 
         {/* Action Controls */}
         <div className="hidden md:flex items-center space-x-4">
@@ -186,61 +198,66 @@ export default function Navbar() {
             }`}
           >
             <div className="space-y-3">
-              {navLinks.map((link) => {
-                if (link.name === "Case Studies") {
-                  return (
-                    <React.Fragment key="services">
-                      <button
-                        onClick={() => setServicesOpen(!servicesOpen)}
-                        className={`flex items-center justify-between w-full rounded-xl px-4 py-2.5 text-base font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
-                          servicesOpen
-                            ? "bg-brand-blue/10 text-brand-blue"
-                            : theme === "dark"
-                            ? "text-slate-400 hover:bg-slate-900 hover:text-white"
-                            : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block rounded-xl px-4 py-2.5 text-base font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
+                    isActive(link.href)
+                      ? "bg-brand-blue/10 text-brand-blue"
+                      : theme === "dark"
+                      ? "text-slate-400 hover:bg-slate-900 hover:text-white"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+
+              {/* Services submenu */}
+              <div>
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className={`flex items-center justify-between w-full rounded-xl px-4 py-2.5 text-base font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
+                    servicesOpen
+                      ? "bg-brand-blue/10 text-brand-blue"
+                      : theme === "dark"
+                      ? "text-slate-400 hover:bg-slate-900 hover:text-white"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                  }`}
+                >
+                  <span>Services</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
+                </button>
+                {servicesOpen && (
+                  <div className="ml-4 mt-1 space-y-1">
+                    {services.map((s) => (
+                      <Link
+                        key={s.name}
+                        href={s.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`block rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                          theme === "dark"
+                            ? "text-slate-500 hover:bg-slate-900 hover:text-white"
+                            : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
                         }`}
                       >
-                        <span>Services</span>
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
-                      </button>
-                      {servicesOpen && (
-                        <div className="ml-4 space-y-1">
-                          {services.map((s) => (
-                            <Link
-                              key={s.name}
-                              href={s.href}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className={`block rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                                theme === "dark"
-                                  ? "text-slate-500 hover:bg-slate-900 hover:text-white"
-                                  : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
-                              }`}
-                            >
-                              {s.name}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </React.Fragment>
-                  );
-                }
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`block rounded-xl px-4 py-2.5 text-base font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
-                      isActive(link.href)
-                        ? "bg-brand-blue/10 text-brand-blue"
-                        : theme === "dark"
-                        ? "text-slate-400 hover:bg-slate-900 hover:text-white"
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
+                        {s.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Case Studies — prominent */}
+              <Link
+                href="/projects"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center rounded-xl bg-brand-blue py-2.5 text-base font-semibold text-white shadow-md hover:bg-brand-blue/90 transition-all duration-200"
+              >
+                Case Studies
+              </Link>
               <div className="pt-2">
                 <a
                   href={portfolioConfig.personal.calendly}
