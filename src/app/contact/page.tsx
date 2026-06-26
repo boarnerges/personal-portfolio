@@ -87,7 +87,9 @@ export default function Contact() {
               30-minute call to discuss your business needs and see if we're a good fit.
             </p>
             <a
-              href="mailto:olujawo1996@gmail.com?subject=Discovery%20Call%20Request"
+              href="https://calendly.com/olujawo1996"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer"
             >
               <Calendar className="h-4 w-4 mr-2" />

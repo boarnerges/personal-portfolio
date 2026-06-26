@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeContext";
 import { Sun, Moon, Menu, X, ChevronDown } from "lucide-react";
+import { portfolioConfig } from "@/config/portfolio";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -128,12 +129,14 @@ export default function Navbar() {
             )}
           </button>
 
-          <Link
-            href="/contact"
+          <a
+            href={portfolioConfig.personal.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex h-10 items-center justify-center rounded-xl bg-brand-blue px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_15px_rgba(0,64,192,0.3)] hover:scale-[1.02]"
           >
             Book a Call
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Controls */}
@@ -239,13 +242,15 @@ export default function Navbar() {
                 );
               })}
               <div className="pt-2">
-                <Link
-                  href="/contact"
+                <a
+                  href={portfolioConfig.personal.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex w-full items-center justify-center rounded-xl bg-brand-blue py-3 text-base font-semibold text-white shadow-md hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer"
                 >
                   Book a Call
-                </Link>
+                </a>
               </div>
             </div>
           </div>

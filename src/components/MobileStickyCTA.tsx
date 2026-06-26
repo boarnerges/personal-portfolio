@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import { portfolioConfig } from "@/config/portfolio";
 
 export default function MobileStickyCTA() {
   return (
@@ -12,12 +12,14 @@ export default function MobileStickyCTA() {
           <br />
           Discuss your business needs
         </p>
-        <Link
-          href="/contact"
+        <a
+          href={portfolioConfig.personal.calendly}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex-shrink-0 inline-flex h-10 items-center justify-center rounded-xl bg-brand-blue px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-blue/90 transition-all duration-200"
         >
           Book a Call
-        </Link>
+        </a>
       </div>
     </div>
   );

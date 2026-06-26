@@ -5,20 +5,10 @@ export interface Project {
   longDescription: string;
   category: "Web App" | "Lead Gen" | "Inventory" | "Portal";
   tags: string[];
-  image: string; // Placeholder or generated SVG description
+  image: string;
   liveUrl: string;
   githubUrl: string;
-  impact: string; // E.g. "Reduced booking friction by 40%"
-}
-
-export interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  category: "Business" | "Development" | "Visibility";
-  readTime: string;
-  date: string;
+  impact: string;
 }
 
 export const portfolioConfig = {
@@ -28,6 +18,7 @@ export const portfolioConfig = {
     tagline: "Helping service businesses grow with lead-generating websites, enquiry management, and business automation.",
     about: "I build custom websites and software that help service businesses attract customers, manage enquiries, and automate their operations. Every project is purpose-built — from SEO-tuned landing pages that rank on Google to booking portals and automated workflows that replace manual spreadsheets.",
     email: "olujawo1996@gmail.com",
+    calendly: "https://calendly.com/olujawo1996",
     socials: {
       linkedin: "http://linkedin.com/in/owolabi-olusegun/",
       github: "https://github.com/boarnerges",
@@ -84,35 +75,5 @@ export const portfolioConfig = {
       githubUrl: "https://github.com/boarnerges",
       impact: "Online visibility converting diagnostic enquiries"
     }
-  ] as Project[],
-
-  blog: [
-    {
-      id: "web-apps-scheduling-nightmare",
-      title: "How a Custom Web App Solved a Small Business's Scheduling Nightmare",
-      excerpt: "Uncoordinated bookings cost small local businesses thousands in lost clients. Here is how custom software resolves the mess.",
-      content: "For small service businesses like salons, medical practices, or consultancies, scheduling is the engine of the business. When booking relies on manual phone calls, Excel sheets, or generic third-party plugins that don't talk to each other, appointments inevitably fall through the cracks.\n\nIn our recent engagement with a local clinic, the staff was spending an average of 15 hours per week manually reconciling appointments between a legacy desktop calendar and incoming phone calls. This led to double-bookings and a frustrated client base. We stepped in to engineer a custom web application tailored precisely to their operational flow.\n\nThe solution wasn't just a generic calendar—it was a robust scheduling portal that integrated directly with their local database and synced availability in real-time. We implemented automated SMS reminders, reducing no-shows by 40%, and introduced a self-service client dashboard. The result? Admin overhead plummeted, and the business could finally scale its operations without hiring additional front-desk staff. Custom software isn't an expense; it's a critical infrastructure investment.",
-      category: "Business",
-      readTime: "4 min read",
-      date: "June 20, 2026"
-    },
-    {
-      id: "visibility-seo-local-professionals",
-      title: "Maximizing Digital Visibility: Practical SEO Strategies for Independent Professionals",
-      excerpt: "Getting listed is not enough. Learn how local professionals are optimizing their sites to rank on search results.",
-      content: "Many independent professionals—lawyers, therapists, private tutors—rely on expensive platforms that charge high fees for leads. By building a high-performance personal portal, you can own your digital real estate and cut out the middleman entirely.\n\nThe core of digital visibility lies in Technical SEO and performance optimization. Search engines prioritize sites that load rapidly and provide a seamless mobile experience. In this guide, we break down the critical checklist for local visibility: implementing accurate Schema Markup for local businesses, achieving perfect Core Web Vitals, and structuring site architecture so web crawlers can index your expertise.\n\nBeyond the code, content strategy plays a massive role. We advocate for creating location-focused service landing pages that target specific long-tail keywords (e.g., 'corporate immigration lawyer in Lagos' instead of just 'lawyer'). When your custom website is engineered correctly from the ground up, you stop paying for ads and start acquiring high-intent organic traffic that converts directly into paying clients.",
-      category: "Visibility",
-      readTime: "5 min read",
-      date: "June 18, 2026"
-    },
-    {
-      id: "why-nextjs-is-ultimate-small-business",
-      title: "Why Next.js is the Ultimate Choice for Small Business Applications",
-      excerpt: "Speed, performance, and SEO. Why we choose Next.js for client websites instead of traditional static sites.",
-      content: "When choosing a tech stack for a client, the debate often boils down to traditional CMS platforms versus modern JavaScript frameworks. For client work, Next.js has emerged as the undisputed champion. It brings Server-Side Rendering (SSR), Static Site Generation (SSG), and secure API routes together under one unified hood.\n\nFor small business platforms, this translates to lightning-fast initial page loads—which is absolutely essential for retaining visitors and ranking highly on Google. Traditional static sites lack the interactivity required for modern business portals, while heavy single-page applications often suffer from poor SEO indexing. Next.js bridges this gap perfectly.\n\nFurthermore, the developer experience and ecosystem around Next.js allow us to ship features rapidly. Whether we are building a dynamic e-commerce catalog, a secure client booking portal, or a highly interactive dashboard, Next.js provides the architectural flexibility to scale. It ensures that the websites we deliver today will remain performant, secure, and maintainable for years to come.",
-      category: "Development",
-      readTime: "3 min read",
-      date: "June 12, 2026"
-    }
-  ] as BlogPost[]
+  ] as Project[]
 };

@@ -541,12 +541,14 @@ export default function Home() {
           </div>
 
           <div className="w-full lg:w-auto text-center">
-            <Link
-              href="/contact"
+            <a
+              href="https://calendly.com/olujawo1996"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full lg:w-auto inline-flex h-14 items-center justify-center rounded-2xl bg-brand-blue px-8 text-base font-bold text-white shadow-lg hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_25px_rgba(0,64,192,0.4)] hover:scale-[1.02]"
             >
               Book a Strategy Call
-            </Link>
+            </a>
             <p className={`text-xs mt-3 ${theme === "dark" ? "text-slate-500" : "text-slate-400"}`}>
               Projects from ₦300,000 · Custom quote for your business
             </p>
