@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
 import { ArrowRight, Eye, MessageSquare, Zap, Sparkles, TrendingUp, User, Globe, Inbox, Phone, CheckCircle, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote } from "lucide-react";
@@ -13,6 +14,26 @@ export default function Home() {
   const { theme } = useTheme();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-80px" },
+    transition: { duration: 0.5, ease: "easeOut" as const }
+  };
+
+  const staggerContainer = {
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+    viewport: { once: true, margin: "-80px" },
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+  };
+
+  const staggerItem = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.4, ease: "easeOut" as const }
+  };
   
   // Highlight specific projects on the landing page
   const featuredProjects = portfolioConfig.projects.filter(p =>
@@ -90,8 +111,8 @@ export default function Home() {
         <HeroFloatingCards />
       </section>
 
-      {/* Is This You? */}
-      <section className={`py-16 sm:py-20 ${
+      {/* Sound Familiar? */}
+      <motion.section {...fadeInUp} className={`py-16 sm:py-20 ${
         theme === "dark" ? "bg-slate-950/20" : "bg-slate-50/50"
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -129,7 +150,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Focus & Value Propositions */}
       <section className={`py-16 sm:py-20 border-y ${
@@ -148,10 +169,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div {...staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1: Lead-Generating Websites */}
-            <div className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
               theme === "dark"
                 ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
                 : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
@@ -165,10 +186,10 @@ export default function Home() {
               }`}>
                 SEO-optimised websites that rank on Google and bring in customers directly.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 2: Enquiry Management */}
-            <div className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
               theme === "dark"
                 ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
                 : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
@@ -182,10 +203,10 @@ export default function Home() {
               }`}>
                 Booking portals and enquiry capture systems that organise every lead — from first contact to close.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 3: Business Automation */}
-            <div className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
               theme === "dark"
                 ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
                 : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
@@ -199,9 +220,9 @@ export default function Home() {
               }`}>
                 Custom software that replaces spreadsheets and manual admin so your operations run on autopilot.
               </p>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
         </div>
       </section>
 

@@ -54,7 +54,7 @@ export default function About() {
           <span>How I Work</span>
         </div>
         <h1 className="text-4xl font-bold tracking-tight font-heading">
-          Custom Software for Service Businesses
+          How I Build Growth Systems for Service Businesses
         </h1>
         <p className={`text-sm leading-relaxed ${theme === "dark" ? "text-slate-400" : "text-slate-600"}`}>
           {personal.about}
@@ -86,12 +86,12 @@ export default function About() {
             <p className={`text-base leading-relaxed font-medium ${
               theme === "dark" ? "text-slate-200" : "text-slate-800"
             }`}>
-              Use technology to solve real business problems.
+              I identify bottlenecks in your business, then build custom websites and software that fix them.
             </p>
             <p className={`text-sm leading-relaxed mt-4 ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
-              I work with service businesses to identify operational bottlenecks, improve customer acquisition through lead-generating websites, organise enquiries, and implement automation that supports growth.
+              Every project starts with a conversation about how your business operates. I look for where leads are leaking, where admin is eating your time, and where manual processes could be automated. Then I build the system that fixes it — from SEO-optimised websites that bring in enquiries to portals that organise them to automation that handles the rest.
             </p>
           </div>
         </div>

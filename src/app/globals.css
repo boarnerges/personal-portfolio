@@ -79,3 +79,15 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Focus styles for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #0040c0;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}

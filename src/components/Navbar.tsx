@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeContext";
-import { Sun, Moon, Menu, X, LayoutDashboard } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -33,7 +33,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue group-hover:scale-105 transition-transform duration-200 shadow-[0_0_15px_rgba(0,64,192,0.15)]">
-            <LayoutDashboard className="h-5.5 w-5.5" />
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5.5 w-5.5">
+              <path d="M12 2L22 12L12 22L2 12Z" />
+            </svg>
           </div>
           <span className="text-xl font-bold tracking-tight font-heading">
             Segun<span className="text-brand-blue glow-text-blue">.O</span>
