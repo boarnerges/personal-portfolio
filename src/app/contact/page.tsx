@@ -32,20 +32,29 @@ export default function Contact() {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setStatus("loading");
 
-    // Simulate API Submission
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, projectType, message }),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
       setStatus("success");
       setName("");
       setEmail("");
       setProjectType("Web App Development");
       setMessage("");
-    }, 1800);
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -326,6 +335,14 @@ export default function Contact() {
                   </p>
                 )}
               </div>
+
+              {/* Error message */}
+              {status === "error" && (
+                <p className={`text-sm text-center ${theme === "dark" ? "text-red-400" : "text-red-600"}`}>
+                  Something went wrong. Please email me directly at{" "}
+                  <a href="mailto:olujawo1996@gmail.com" className="underline">olujawo1996@gmail.com</a>.
+                </p>
+              )}
 
               {/* Submit button */}
               <button

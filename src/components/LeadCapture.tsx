@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useTheme } from "./ThemeContext";
-import { Mail, X, MessageSquare } from "lucide-react";
+import { X, MessageSquare } from "lucide-react";
 
 export default function LeadCapture() {
   const { theme } = useTheme();
@@ -22,9 +22,18 @@ export default function LeadCapture() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim()) return;
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message: "Lead capture signup — interested in services" }),
+      });
+    } catch {}
+
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);

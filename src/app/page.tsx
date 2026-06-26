@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
-import { ArrowRight, Eye, MessageSquare, Zap, Sparkles, TrendingUp, User, Globe, Inbox, Phone, CheckCircle, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote, Search, Pen, Code, Rocket } from "lucide-react";
+import { ArrowRight, Eye, MessageSquare, Zap, Sparkles, TrendingUp, CheckCircle, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote, Search, Pen, Code, Rocket } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import HeroBackground from "@/components/HeroBackground";
 import HeroFloatingCards from "@/components/HeroFloatingCards";
