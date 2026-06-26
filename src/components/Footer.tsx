@@ -35,24 +35,27 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Core Focus Info */}
+          {/* Case Studies Links */}
           <div className="space-y-4">
             <h3 className={`text-sm font-semibold tracking-wider uppercase ${
               theme === "dark" ? "text-slate-200" : "text-slate-800"
             }`}>
-              My Commitment
+              Case Studies
             </h3>
             <ul className={`space-y-2.5 text-sm ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
-              <li className="flex items-start">
-                <span className="text-brand-blue mr-2">✓</span> Lead-Generating Websites
+              <li>
+                <Link href="/projects#cpaw-studio" className="hover:text-brand-blue transition-colors duration-200">Creative Agency &mdash; Lead Gen</Link>
               </li>
-              <li className="flex items-start">
-                <span className="text-brand-blue mr-2">✓</span> Enquiry Management Systems
+              <li>
+                <Link href="/projects#joyix-ushering" className="hover:text-brand-blue transition-colors duration-200">Ushering Agency &mdash; Booking Portal</Link>
               </li>
-              <li className="flex items-start">
-                <span className="text-brand-blue mr-2">✓</span> Business Automation
+              <li>
+                <Link href="/projects#dapo-awobeku" className="hover:text-brand-blue transition-colors duration-200">Health Policy &mdash; Authority Platform</Link>
+              </li>
+              <li>
+                <Link href="/projects#flash-j-mechatronics" className="hover:text-brand-blue transition-colors duration-200">Mechatronics &mdash; Lead Capture</Link>
               </li>
             </ul>
           </div>
@@ -127,9 +130,15 @@ export default function Footer() {
           <p className={theme === "dark" ? "text-slate-500" : "text-slate-400"}>
             &copy; {currentYear} Segun Owolabi. All rights reserved.
           </p>
-          <p className={theme === "dark" ? "text-slate-500" : "text-slate-400"}>
-            Based in Nigeria · Working with clients worldwide
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className={`hover:text-brand-blue transition-colors duration-200 ${
+              theme === "dark" ? "text-slate-500" : "text-slate-400"
+            }`}>Privacy</Link>
+            <span className={theme === "dark" ? "text-slate-700" : "text-slate-300"}>·</span>
+            <p className={theme === "dark" ? "text-slate-500" : "text-slate-400"}>
+              Based in Nigeria · Working with clients worldwide
+            </p>
+          </div>
         </div>
       </div>
     </footer>

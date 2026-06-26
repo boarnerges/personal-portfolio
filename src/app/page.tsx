@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
-import { ArrowRight, Eye, MessageSquare, Zap, Sparkles, TrendingUp, User, Globe, Inbox, Phone, CheckCircle, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote } from "lucide-react";
+import { ArrowRight, Eye, MessageSquare, Zap, Sparkles, TrendingUp, User, Globe, Inbox, Phone, CheckCircle, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote, Search, Pen, Code, Rocket } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import HeroBackground from "@/components/HeroBackground";
 import HeroFloatingCards from "@/components/HeroFloatingCards";
@@ -51,7 +51,6 @@ export default function Home() {
         {/* Background Image & Overlays */}
         <div className="absolute inset-0 z-0">
           <HeroBackground />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/10 to-transparent"></div>
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
@@ -281,11 +280,11 @@ export default function Home() {
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
             {[
-              { label: "Visitor", icon: User, desc: "Finds you on Google" },
-              { label: "Website", icon: Globe, desc: "Converts with SEO & clear CTAs" },
-              { label: "Enquiry", icon: Inbox, desc: "Captured and organised instantly" },
-              { label: "Follow-up", icon: Phone, desc: "Automated reminders & responses" },
-              { label: "Customer", icon: CheckCircle, desc: "Closed and delighted" },
+              { label: "We Audit", icon: Search, desc: "Identify bottlenecks & lead gaps" },
+              { label: "We Design", icon: Pen, desc: "Map solution to your workflow" },
+              { label: "We Build", icon: Code, desc: "Custom website, portal, or system" },
+              { label: "We Launch", icon: Rocket, desc: "Deploy, test, and go live" },
+              { label: "You Grow", icon: TrendingUp, desc: "More enquiries, less admin" },
             ].map((step, i) => (
               <React.Fragment key={step.label}>
                 <div className="flex flex-col items-center text-center px-3">
@@ -302,11 +301,14 @@ export default function Home() {
                   }`}>{step.desc}</p>
                 </div>
                 {i < 4 && (
-                  <div className={`hidden md:flex items-center ${
-                    theme === "dark" ? "text-slate-600" : "text-slate-300"
-              }`}>
-                    <ArrowRight className="h-5 w-5" />
-                  </div>
+                  <>
+                    <div className={`hidden md:flex items-center ${
+                      theme === "dark" ? "text-slate-600" : "text-slate-300"
+                    }`}>
+                      <ArrowRight className="h-5 w-5" />
+                    </div>
+                    <div className="md:hidden h-8 w-px border-l-2 border-dashed" />
+                  </>
                 )}
               </React.Fragment>
             ))}
@@ -497,7 +499,7 @@ export default function Home() {
               { quote: "This is nice and beautiful", name: "Eyitayo Oloruntoba", role: "Founder, Joyix Ushering Agency" },
               { quote: "Really like this, it demonstrates my projects perfectly", name: "Ebenezer Abegunde", role: "Founder, CPAW Studio" },
             ].map((t) => (
-              <div key={t.name} className={`p-8 rounded-2xl border ${
+              <div key={t.name} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.01] ${
                 theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
               }`}>
                 <Quote className="h-6 w-6 text-brand-blue/30 mb-4" />
@@ -520,13 +522,14 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 mb-8">
-        <div className={`relative rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-16 border shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8 ${
+        <div className={`relative rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-16 border-2 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 ${
           theme === "dark"
-            ? "glass-panel-dark border-slate-850"
-            : "glass-panel-light border-slate-200"
+            ? "bg-slate-900 border-brand-blue/20"
+            : "bg-white border-brand-blue/10"
         }`}>
           {/* Ambient Glow */}
-          <div className="absolute top-0 right-0 -z-10 h-80 w-80 rounded-full bg-brand-blue/10 blur-[100px]" />
+          <div className="absolute top-0 right-0 -z-10 h-96 w-96 rounded-full bg-brand-blue/15 blur-[120px]" />
+          <div className="absolute bottom-0 left-0 -z-10 h-64 w-64 rounded-full bg-brand-blue/5 blur-[80px]" />
           
           <div className="max-w-xl space-y-4">
               <h2 className="text-3xl font-bold font-heading">
