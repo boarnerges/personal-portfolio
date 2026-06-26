@@ -44,7 +44,7 @@ export default function Home() {
     <div className="relative overflow-hidden">
       {/* Background Decorative Gradients */}
       <div className="absolute top-0 left-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-brand-blue/5 blur-[120px] dark:bg-brand-blue/10" />
-      <div className="absolute top-1/3 right-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-emerald-500/5 blur-[100px] dark:bg-emerald-500/5" />
+      <div className="absolute top-1/3 right-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-brand-warm/5 blur-[100px] dark:bg-brand-warm/10" />
 
       {/* Hero Section */}
       <section className="relative min-h-screen lg:min-h-[90vh] flex flex-col justify-center overflow-hidden">
@@ -58,7 +58,7 @@ export default function Home() {
             
             {/* Subtle Tag/Badge */}
             <div className="flex justify-center">
-              <div className="inline-flex items-center space-x-2 rounded-full px-4 py-1.5 text-xs font-semibold leading-5 text-brand-blue bg-brand-blue/10 border border-brand-blue/20 shadow-[0_0_15px_rgba(0,64,192,0.1)] backdrop-blur-md">
+              <div className="inline-flex items-center space-x-2 rounded-full px-4 py-1.5 text-xs font-semibold leading-5 text-brand-blue bg-brand-blue/10 border border-brand-blue/20 backdrop-blur-md">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>Available for Select Clients</span>
               </div>
@@ -97,7 +97,7 @@ export default function Home() {
                   onClick={() => setCurrentSlide(index)}
                   className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                     index === currentSlide
-                      ? "w-8 bg-brand-blue shadow-[0_0_10px_rgba(0,64,192,0.5)]"
+                      ? "w-8 bg-brand-blue"
                       : "w-2 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
@@ -116,7 +116,7 @@ export default function Home() {
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading text-center">Sound Familiar?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-center">Sound Familiar?</h2>
             <p className={`text-sm text-center mt-3 mb-10 ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>You might need this if...</p>
@@ -158,7 +158,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+              <h2 className="text-3xl sm:text-4xl font-bold font-heading">
                 How I Help You Grow
               </h2>
             <p className={`text-sm mt-3 ${
@@ -171,10 +171,10 @@ export default function Home() {
           <motion.div {...staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1: Lead-Generating Websites */}
-            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg cursor-pointer ${
               theme === "dark"
                 ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
-                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
+                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-lg"
             }`}>
               <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 shadow-sm">
                 <Eye className="h-6 w-6" />
@@ -183,15 +183,15 @@ export default function Home() {
               <p className={`text-sm leading-relaxed ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}>
-                SEO-optimised websites that rank on Google and bring in customers directly.
+                SEO-ready sites built to rank on Google and pull in qualified leads — no ad spend required.
               </p>
             </motion.div>
 
             {/* Card 2: Enquiry Management */}
-            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg cursor-pointer ${
               theme === "dark"
                 ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
-                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
+                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-lg"
             }`}>
               <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 shadow-sm">
                 <MessageSquare className="h-6 w-6" />
@@ -200,15 +200,15 @@ export default function Home() {
               <p className={`text-sm leading-relaxed ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}>
-                Booking portals and enquiry capture systems that organise every lead — from first contact to close.
+                Booking portals and capture systems that organise every lead from first contact to signed client.
               </p>
             </motion.div>
 
             {/* Card 3: Business Automation */}
-            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+            <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg cursor-pointer ${
               theme === "dark"
                 ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
-                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
+                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-lg"
             }`}>
               <div className="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 mb-6 shadow-sm">
                 <Zap className="h-6 w-6" />
@@ -217,7 +217,7 @@ export default function Home() {
               <p className={`text-sm leading-relaxed ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}>
-                Custom software that replaces spreadsheets and manual admin so your operations run on autopilot.
+                Custom software that replaces spreadsheets and manual busywork — your operations run on autopilot.
               </p>
             </motion.div>
 
@@ -231,7 +231,7 @@ export default function Home() {
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading">
               Why Work With Me
             </h2>
             <p className={`text-sm mt-3 ${
@@ -246,7 +246,7 @@ export default function Home() {
               { title: "Fast Communication", desc: "You get a direct line to the person building your system. No account managers, no runaround. Questions answered within hours, not days.", icon: ZapIcon },
               { title: "End-to-End Service", desc: "From strategy to design to development to launch — I handle everything. Your website or automation system ships complete and ready to grow your business.", icon: Target },
             ].map((item) => (
-              <div key={item.title} className={`p-8 rounded-2xl border text-center ${
+              <div key={item.title} className={`p-8 rounded-2xl border text-center transition-all duration-300 hover:scale-[1.01] hover:shadow-md ${
                 theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
               }`}>
                 <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mx-auto mb-4">
@@ -268,7 +268,7 @@ export default function Home() {
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading">
               How It Works
             </h2>
             <p className={`text-sm mt-3 ${
@@ -322,7 +322,7 @@ export default function Home() {
       }`}>
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading">
               Frequently Asked Questions
             </h2>
             <p className={`text-sm mt-3 ${
@@ -372,7 +372,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading">
               Featured Case Studies
             </h2>
             <p className={`text-sm mt-3 ${
@@ -485,7 +485,7 @@ export default function Home() {
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading">
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading">
               What Clients Say
             </h2>
             <p className={`text-sm mt-3 ${

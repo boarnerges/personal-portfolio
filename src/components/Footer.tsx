@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <span className="text-xl font-bold tracking-tight font-heading">
-                Segun<span className="text-brand-blue glow-text-blue">.O</span>
+                Segun<span className="text-brand-blue">.O</span>
               </span>
             </Link>
             <p className={`text-sm leading-relaxed max-w-xs ${
