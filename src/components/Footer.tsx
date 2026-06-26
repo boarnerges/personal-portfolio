@@ -1,0 +1,142 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { portfolioConfig } from "@/config/portfolio";
+import { useTheme } from "./ThemeContext";
+import { Mail, ArrowUpRight } from "lucide-react";
+
+export default function Footer() {
+  const { theme } = useTheme();
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer
+      className={`mt-auto border-t py-12 transition-all duration-300 ${
+        theme === "dark"
+          ? "bg-slate-950/40 border-slate-900"
+          : "bg-slate-50 border-slate-200"
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start justify-between">
+          
+          {/* Logo & Tagline */}
+          <div className="space-y-4">
+            <Link href="/" className="inline-block">
+              <span className="text-xl font-bold tracking-tight font-heading">
+                Segun<span className="text-brand-blue glow-text-blue">.O</span>
+              </span>
+            </Link>
+            <p className={`text-sm leading-relaxed max-w-xs ${
+              theme === "dark" ? "text-slate-400" : "text-slate-600"
+            }`}>
+              {portfolioConfig.personal.tagline}
+            </p>
+            <p className={`text-xs leading-relaxed max-w-xs ${
+              theme === "dark" ? "text-slate-500" : "text-slate-400"
+            }`}>
+              Helping service businesses turn visitors into customers through websites and automation.
+            </p>
+          </div>
+
+          {/* Core Focus Info */}
+          <div className="space-y-4">
+            <h3 className={`text-sm font-semibold tracking-wider uppercase ${
+              theme === "dark" ? "text-slate-200" : "text-slate-800"
+            }`}>
+              My Commitment
+            </h3>
+            <ul className={`space-y-2.5 text-sm ${
+              theme === "dark" ? "text-slate-400" : "text-slate-600"
+            }`}>
+              <li className="flex items-start">
+                <span className="text-brand-blue mr-2">✓</span> Lead-Generating Websites
+              </li>
+              <li className="flex items-start">
+                <span className="text-brand-blue mr-2">✓</span> Enquiry Management Systems
+              </li>
+              <li className="flex items-start">
+                <span className="text-brand-blue mr-2">✓</span> Business Automation
+              </li>
+            </ul>
+          </div>
+
+          {/* Reach Out / Socials */}
+          <div className="space-y-4 md:text-right md:flex md:flex-col md:items-end">
+            <h3 className={`text-sm font-semibold tracking-wider uppercase ${
+              theme === "dark" ? "text-slate-200" : "text-slate-800"
+            }`}>
+              Connect
+            </h3>
+            <div className="flex items-center space-x-4 mt-2">
+              <a
+                href={portfolioConfig.personal.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 cursor-pointer ${
+                  theme === "dark"
+                    ? "bg-slate-900 hover:bg-slate-850 text-slate-350 hover:text-white border border-slate-800"
+                    : "bg-white hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200"
+                }`}
+                aria-label="GitHub"
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              </a>
+              <a
+                href={portfolioConfig.personal.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 cursor-pointer ${
+                  theme === "dark"
+                    ? "bg-slate-900 hover:bg-slate-850 text-slate-350 hover:text-white border border-slate-800"
+                    : "bg-white hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200"
+                }`}
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a
+                href={portfolioConfig.personal.socials.email}
+                className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200 cursor-pointer ${
+                  theme === "dark"
+                    ? "bg-slate-900 hover:bg-slate-850 text-slate-350 hover:text-white border border-slate-800"
+                    : "bg-white hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200"
+                }`}
+                aria-label="Email"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+            </div>
+            
+            <a
+              href={portfolioConfig.personal.socials.email}
+              className={`inline-flex items-center space-x-1 mt-4 text-sm font-medium border-b border-transparent transition-colors duration-200 hover:border-brand-blue cursor-pointer ${
+                theme === "dark" ? "text-slate-300 hover:text-white" : "text-slate-700 hover:text-slate-900"
+              }`}
+            >
+              <span>{portfolioConfig.personal.email}</span>
+              <ArrowUpRight className="h-4 w-4 text-brand-blue" />
+            </a>
+          </div>
+
+        </div>
+
+        {/* Divider */}
+        <div className={`my-8 border-t ${
+          theme === "dark" ? "border-slate-900" : "border-slate-200"
+        }`} />
+
+        {/* Bottom copyright */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <p className={theme === "dark" ? "text-slate-500" : "text-slate-400"}>
+            &copy; {currentYear} Segun Owolabi. All rights reserved.
+          </p>
+          <p className={theme === "dark" ? "text-slate-500" : "text-slate-400"}>
+            Based in Nigeria · Working with clients worldwide
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
