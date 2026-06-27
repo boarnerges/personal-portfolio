@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <span className="text-xl font-bold tracking-tight font-heading">
-                Segun<span className="text-brand-blue">.O</span>
+                Segun<span className="text-brand-warm">.O</span>
               </span>
             </Link>
             <p className={`text-sm leading-relaxed max-w-xs ${
@@ -46,16 +46,16 @@ export default function Footer() {
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
               <li>
-                <Link href="/projects#cpaw-studio" className="hover:text-brand-blue transition-colors duration-200">Creative Agency &mdash; Lead Gen</Link>
+                <Link href="/projects#cpaw-studio" className="hover:text-brand-warm transition-colors duration-200">Creative Agency &mdash; Lead Gen</Link>
               </li>
               <li>
-                <Link href="/projects#joyix-ushering" className="hover:text-brand-blue transition-colors duration-200">Ushering Agency &mdash; Booking Portal</Link>
+                <Link href="/projects#joyix-ushering" className="hover:text-brand-warm transition-colors duration-200">Ushering Agency &mdash; Booking Portal</Link>
               </li>
               <li>
-                <Link href="/projects#dapo-awobeku" className="hover:text-brand-blue transition-colors duration-200">Health Policy &mdash; Authority Platform</Link>
+                <Link href="/projects#dapo-awobeku" className="hover:text-brand-warm transition-colors duration-200">Health Policy &mdash; Authority Platform</Link>
               </li>
               <li>
-                <Link href="/projects#flash-j-mechatronics" className="hover:text-brand-blue transition-colors duration-200">Mechatronics &mdash; Lead Capture</Link>
+                <Link href="/projects#flash-j-mechatronics" className="hover:text-brand-warm transition-colors duration-200">Mechatronics &mdash; Lead Capture</Link>
               </li>
             </ul>
           </div>
@@ -109,12 +109,12 @@ export default function Footer() {
             
             <a
               href={portfolioConfig.personal.socials.email}
-              className={`inline-flex items-center space-x-1 mt-4 text-sm font-medium border-b border-transparent transition-colors duration-200 hover:border-brand-blue cursor-pointer ${
+              className={`inline-flex items-center space-x-1 mt-4 text-sm font-medium border-b border-transparent transition-colors duration-200 hover:border-brand-warm cursor-pointer ${
                 theme === "dark" ? "text-slate-300 hover:text-white" : "text-slate-700 hover:text-slate-900"
               }`}
             >
               <span>{portfolioConfig.personal.email}</span>
-              <ArrowUpRight className="h-4 w-4 text-brand-blue" />
+              <ArrowUpRight className="h-4 w-4 text-brand-warm" />
             </a>
           </div>
 
@@ -131,7 +131,7 @@ export default function Footer() {
             &copy; {currentYear} Segun Owolabi. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className={`hover:text-brand-blue transition-colors duration-200 ${
+            <Link href="/privacy" className={`hover:text-brand-warm transition-colors duration-200 ${
               theme === "dark" ? "text-slate-500" : "text-slate-400"
             }`}>Privacy</Link>
             <span className={theme === "dark" ? "text-slate-700" : "text-slate-300"}>·</span>

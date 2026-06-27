@@ -6,11 +6,11 @@ export default function HeroBackground() {
   return (
     <>
       {/* Mobile: clean gradient fallback */}
-      <div className="md:hidden absolute inset-0 bg-gradient-to-b from-brand-blue/[0.04] via-transparent to-brand-blue/[0.02]" />
+      <div className="md:hidden absolute inset-0 bg-gradient-to-b from-brand-warm/[0.04] via-transparent to-brand-warm/[0.02]" />
 
       {/* Desktop: SVG art */}
       <div className="hidden md:block absolute inset-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" className="w-full h-full text-brand-blue dark:text-[var(--foreground)]">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" className="w-full h-full text-brand-warm dark:text-[var(--foreground)]">
           <defs>
             <linearGradient id="heroGlow" x1="0.5" y1="0" x2="0.5" y2="1">
               <stop offset="0%" stopColor="currentColor" stopOpacity="0.06"/>

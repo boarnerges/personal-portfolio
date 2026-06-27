@@ -5,14 +5,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
-import { ArrowRight, Eye, MessageSquare, Zap, Sparkles, TrendingUp, CheckCircle, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote, Search, Pen, Code, Rocket } from "lucide-react";
+import { ArrowRight, Eye, MessageSquare, Zap, TrendingUp, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote, Search, Pen, Code, Rocket } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
-import HeroBackground from "@/components/HeroBackground";
-import HeroFloatingCards from "@/components/HeroFloatingCards";
+import HeroDashboard from "@/components/HeroDashboard";
 
 export default function Home() {
   const { theme } = useTheme();
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const fadeInUp = {
@@ -43,96 +41,69 @@ export default function Home() {
   return (
     <div className="relative overflow-hidden">
       {/* Background Decorative Gradients */}
-      <div className="absolute top-0 left-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-brand-blue/5 blur-[120px] dark:bg-brand-blue/10" />
+      <div className="absolute top-0 left-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-brand-warm/5 blur-[120px] dark:bg-brand-warm/10" />
       <div className="absolute top-1/3 right-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-brand-warm/5 blur-[100px] dark:bg-brand-warm/10" />
 
       {/* Hero Section */}
       <section className="relative min-h-screen lg:min-h-[90vh] flex flex-col justify-center">
-        {/* Background Image & Overlays */}
-        <div className="absolute inset-0 z-0">
-          <HeroBackground />
-        </div>
-
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-          <div className="text-center max-w-4xl mx-auto space-y-10 w-full flex flex-col justify-center">
-            
-            {/* Subtle Tag/Badge */}
-            <div className="flex justify-center">
-              <div className="inline-flex items-center space-x-2 rounded-full px-4 py-1.5 text-xs font-semibold leading-5 text-brand-blue bg-brand-blue/10 border border-brand-blue/20 backdrop-blur-md">
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>Available for Select Clients</span>
-              </div>
-            </div>
+          <div className="text-center max-w-4xl mx-auto w-full flex flex-col justify-center">
+            {/* Main Headline & Supporting Copy */}
+            <HeroSlider />
 
-            {/* Main Headline & Subtitle Slider */}
-            <HeroSlider currentSlide={currentSlide} onSlideChange={setCurrentSlide} />
-
-            {/* Actions */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Link
-                href="/projects"
-                className="w-full sm:w-auto inline-flex items-center justify-center h-12 rounded-xl bg-brand-blue px-6 font-semibold text-white shadow-md hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_20px_rgba(0,64,192,0.35)] hover:scale-[1.02]"
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+              <a
+                href="https://calendly.com/olujawo1996"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center h-12 rounded-xl px-8 text-base font-bold text-white shadow-md transition-all duration-200 cursor-pointer hover:shadow-[0_0_20px_rgba(192,122,58,0.35)] hover:scale-[1.02]"
+                style={{ backgroundColor: "var(--color-brand-warm, #c07a3a)" }}
               >
-                <span>View Case Studies</span>
+                <span>Book Free Strategy Call</span>
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </a>
               
               <Link
-                href="/about"
+                href="/projects"
                 className={`w-full sm:w-auto inline-flex items-center justify-center h-12 rounded-xl border font-semibold px-6 transition-all duration-200 cursor-pointer ${
                   theme === "dark"
                     ? "bg-slate-900/60 hover:bg-slate-900 text-slate-200 border-slate-800 hover:border-slate-700 backdrop-blur-md"
                     : "bg-white/80 hover:bg-white text-slate-700 border-slate-200 hover:border-slate-300 backdrop-blur-md"
                 }`}
               >
-                See How It Works
+                View Case Studies
               </Link>
-            </div>
-
-            {/* Slider indicators below buttons */}
-            <div className="flex justify-center space-x-2 pt-6">
-              {[0, 1, 2].map((index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    index === currentSlide
-                      ? "w-8 bg-brand-blue"
-                      : "w-2 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
             </div>
           </div>
         </div>
 
-        <HeroFloatingCards />
+        {/* Dashboard Mockup */}
+        <HeroDashboard />
       </section>
 
-      {/* Sound Familiar? */}
+      {/* Pain Points */}
       <motion.section {...fadeInUp} className={`py-16 sm:py-20 ${
         theme === "dark" ? "bg-slate-950/20" : "bg-slate-50/50"
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-center">Sound Familiar?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-center">Is this your reality?</h2>
             <p className={`text-sm text-center mt-3 mb-10 ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
-            }`}>You might need this if...</p>
+            }`}></p>
             <div className={`p-8 sm:p-10 rounded-2xl border ${
               theme === "dark" ? "bg-slate-900/30 border-slate-800" : "bg-white border-slate-200 shadow-sm"
             }`}>
               <ul className="space-y-4">
                 {[
-                  "Your business depends mostly on referrals and word-of-mouth.",
-                  "People visit your website but rarely get in touch.",
-                  "Enquiries are scattered across WhatsApp, Instagram, and email.",
-                  "Following up with prospects feels inconsistent.",
-                  "You're spending too much time on admin instead of serving clients.",
+                  "You're missing enquiries on Instagram DMs you never see.",
+                  "Your website exists but doesn't pull consistent business.",
+                  "Follow-ups happen \"whenever you remember\" — and prospects move to competitors.",
+                  "You're turning down work because you can't manage the admin.",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start space-x-3">
-                    <CheckCircle className="flex-shrink-0 h-5 w-5 text-brand-blue mt-0.5" />
+                    <span className="flex-shrink-0 h-5 w-5 text-red-400 font-bold text-lg leading-none mt-0.5">✗</span>
                     <span className={`text-sm sm:text-base leading-relaxed ${
                       theme === "dark" ? "text-slate-300" : "text-slate-700"
                     }`}>{item}</span>
@@ -141,9 +112,9 @@ export default function Home() {
               </ul>
               <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
                 <p className={`text-base font-semibold text-center ${
-                  theme === "dark" ? "text-slate-200" : "text-slate-800"
+                  theme === "dark" ? "text-red-400" : "text-red-600"
                 }`}>
-                  If you answered yes to any of these, you're exactly who I build for.
+                  Right now, this is costing you roughly ₦2–5 million annually.
                 </p>
               </div>
             </div>
@@ -151,7 +122,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Focus & Value Propositions */}
+      {/* What I Solve For You */}
       <section className={`py-16 sm:py-20 border-y ${
         theme === "dark" ? "bg-slate-950/20 border-slate-900" : "bg-slate-50/50 border-slate-250"
       }`}>
@@ -159,7 +130,7 @@ export default function Home() {
           
           <div className="text-center max-w-xl mx-auto mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold font-heading">
-                How I Help You Grow
+                What I Solve For You
               </h2>
             <p className={`text-sm mt-3 ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
@@ -173,51 +144,51 @@ export default function Home() {
             {/* Card 1: Lead-Generating Websites */}
             <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg cursor-pointer ${
               theme === "dark"
-                ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
-                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-lg"
+                ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30"
+                : "bg-white border-slate-200 hover:border-brand-warm/30 hover:shadow-lg"
             }`}>
-              <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 shadow-sm">
+              <div className="h-12 w-12 rounded-xl bg-brand-warm/10 flex items-center justify-center text-brand-warm mb-6 shadow-sm">
                 <Eye className="h-6 w-6" />
               </div>
               <h3 className="text-lg font-bold font-heading mb-3">Lead-Generating Websites</h3>
               <p className={`text-sm leading-relaxed ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}>
-                SEO-ready sites built to rank on Google and pull in qualified leads — no ad spend required.
+                Websites that rank on Google for the searches your ideal clients make. You wake up to new enquiries without spending on ads.
               </p>
             </motion.div>
 
             {/* Card 2: Enquiry Management */}
             <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg cursor-pointer ${
               theme === "dark"
-                ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
-                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-lg"
+                ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30"
+                : "bg-white border-slate-200 hover:border-brand-warm/30 hover:shadow-lg"
             }`}>
-              <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-6 shadow-sm">
+              <div className="h-12 w-12 rounded-xl bg-brand-warm/10 flex items-center justify-center text-brand-warm mb-6 shadow-sm">
                 <MessageSquare className="h-6 w-6" />
               </div>
               <h3 className="text-lg font-bold font-heading mb-3">Enquiry Management</h3>
               <p className={`text-sm leading-relaxed ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}>
-                Booking portals and capture systems that organise every lead from first contact to signed client.
+                Every lead captured. From first message to signed contract — nothing slips through WhatsApp DMs or scattered emails. Complete visibility in one place.
               </p>
             </motion.div>
 
             {/* Card 3: Business Automation */}
             <motion.div {...staggerItem} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg cursor-pointer ${
               theme === "dark"
-                ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30"
-                : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-lg"
+                ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30"
+                : "bg-white border-slate-200 hover:border-brand-warm/30 hover:shadow-lg"
             }`}>
-              <div className="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 mb-6 shadow-sm">
+              <div className="h-12 w-12 rounded-xl bg-brand-warm/10 flex items-center justify-center text-brand-warm mb-6 shadow-sm">
                 <Zap className="h-6 w-6" />
               </div>
               <h3 className="text-lg font-bold font-heading mb-3">Business Automation</h3>
               <p className={`text-sm leading-relaxed ${
                 theme === "dark" ? "text-slate-400" : "text-slate-600"
               }`}>
-                Custom software that replaces spreadsheets and manual busywork — your operations run on autopilot.
+                Workflows that run 24/7 without you. Follow-ups happen automatically. Tasks get assigned. Emails send. Your team stays productive while you focus on delivery.
               </p>
             </motion.div>
 
@@ -237,19 +208,19 @@ export default function Home() {
             <p className={`text-sm mt-3 ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
-              Built differently so your business grows differently.
+              Not every developer builds this way. Here's what makes the difference.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { title: "Custom Built, Not Templated", desc: "Every system is built from the ground up for your specific business. No WordPress themes, no page builders — just purpose-built software tailored to how you operate.", icon: Wrench },
-              { title: "Fast Communication", desc: "You get a direct line to the person building your system. No account managers, no runaround. Questions answered within hours, not days.", icon: ZapIcon },
-              { title: "End-to-End Service", desc: "From strategy to design to development to launch — I handle everything. Your website or automation system ships complete and ready to grow your business.", icon: Target },
+              { title: "Built for Service Businesses", desc: "I've built systems for creative agencies, design studios, consultancies, and professional services. I understand your model because I've solved these problems dozens of times. No learning curve.", icon: Wrench },
+              { title: "Direct Access, Not an Email Queue", desc: "You get my direct number and email. Questions answered in hours, not days. No project managers, no ticket queues. The person building your system is the person you talk to every day.", icon: ZapIcon },
+              { title: "Accountability for Results", desc: "You're not paying for hours or deliverables. You're paying for enquiry flow. I measure success by the leads you capture and convert, not my billable hours.", icon: Target },
             ].map((item) => (
               <div key={item.title} className={`p-8 rounded-2xl border text-center transition-all duration-300 hover:scale-[1.01] hover:shadow-md ${
                 theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
               }`}>
-                <div className="h-12 w-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mx-auto mb-4">
+                <div className="h-12 w-12 rounded-xl bg-brand-warm/10 flex items-center justify-center text-brand-warm mx-auto mb-4">
                   <item.icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-base font-bold font-heading mb-2">{item.title}</h3>
@@ -290,8 +261,8 @@ export default function Home() {
                 <div className="flex flex-col items-center text-center px-3">
                   <div className={`h-20 w-20 rounded-2xl flex items-center justify-center border-2 mb-3 ${
                     theme === "dark"
-                      ? "bg-slate-900/60 border-slate-800 text-brand-blue"
-                      : "bg-white border-slate-200 shadow-sm text-brand-blue"
+                      ? "bg-slate-900/60 border-slate-800 text-brand-warm"
+                      : "bg-white border-slate-200 shadow-sm text-brand-warm"
                   }`}>
                     <step.icon className="h-9 w-9" />
                   </div>
@@ -351,7 +322,7 @@ export default function Home() {
                   }`}
                 >
                   <span>{faq.q}</span>
-                  <ChevronDown className={`h-4 w-4 text-brand-blue transition-transform duration-200 flex-shrink-0 ml-4 ${
+                  <ChevronDown className={`h-4 w-4 text-brand-warm transition-transform duration-200 flex-shrink-0 ml-4 ${
                     openFaq === i ? "rotate-180" : ""
                   }`} />
                 </button>
@@ -385,7 +356,7 @@ export default function Home() {
           </div>
           <Link
             href="/projects"
-            className="group flex items-center space-x-1.5 text-sm font-semibold text-brand-blue mt-4 sm:mt-0 hover:underline cursor-pointer"
+            className="group flex items-center space-x-1.5 text-sm font-semibold text-brand-warm mt-4 sm:mt-0 hover:underline cursor-pointer"
           >
             <span>View Case Studies</span>
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -398,8 +369,8 @@ export default function Home() {
               key={project.id}
               className={`rounded-2xl overflow-hidden border flex flex-col transition-all duration-300 hover:scale-[1.01] hover:shadow-lg ${
                 theme === "dark"
-                  ? "bg-slate-900/30 border-slate-800 hover:border-brand-blue/20"
-                  : "bg-white border-slate-200 hover:border-brand-blue/20"
+                  ? "bg-slate-900/30 border-slate-800 hover:border-brand-warm/20"
+                  : "bg-white border-slate-200 hover:border-brand-warm/20"
               }`}
             >
                 {/* Project Card Header */}
@@ -420,7 +391,7 @@ export default function Home() {
                   alt={project.title}
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-3 left-3 bg-brand-blue text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-md">
+                <div className="absolute top-3 left-3 bg-brand-warm text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-md">
                   {project.impact}
                 </div>
               </div>
@@ -459,7 +430,7 @@ export default function Home() {
                   <div className="flex items-center gap-3">
                     <Link
                     href={`/projects#${project.id}`}
-                    className="inline-flex items-center space-x-1 text-sm font-semibold text-brand-blue hover:underline cursor-pointer"
+                    className="inline-flex items-center space-x-1 text-sm font-semibold text-brand-warm hover:underline cursor-pointer"
                   >
                     <span>Read Case Study</span>
                     <ArrowRight className="h-4 w-4" />
@@ -504,7 +475,7 @@ export default function Home() {
               <div key={t.name} className={`p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.01] ${
                 theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
               }`}>
-                <Quote className="h-6 w-6 text-brand-blue/30 mb-4" />
+                <Quote className="h-6 w-6 text-brand-warm/30 mb-4" />
                 <p className={`text-base leading-relaxed italic mb-6 ${
                   theme === "dark" ? "text-slate-300" : "text-slate-700"
                 }`}>
@@ -526,33 +497,36 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 mb-8">
         <div className={`relative rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-16 border-2 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 ${
           theme === "dark"
-            ? "bg-slate-900 border-brand-blue/20"
-            : "bg-white border-brand-blue/10"
+            ? "bg-slate-900 border-brand-warm/20"
+            : "bg-white border-brand-warm/10"
         }`}>
           {/* Ambient Glow */}
-          <div className="absolute top-0 right-0 -z-10 h-96 w-96 rounded-full bg-brand-blue/15 blur-[120px]" />
-          <div className="absolute bottom-0 left-0 -z-10 h-64 w-64 rounded-full bg-brand-blue/5 blur-[80px]" />
+          <div className="absolute top-0 right-0 -z-10 h-96 w-96 rounded-full bg-brand-warm/15 blur-[120px]" />
+          <div className="absolute bottom-0 left-0 -z-10 h-64 w-64 rounded-full bg-brand-warm/5 blur-[80px]" />
           
           <div className="max-w-xl space-y-4">
               <h2 className="text-3xl font-bold font-heading">
-                Ready to build a system that grows your business?
+                Ready to stop losing leads to poor systems?
               </h2>
-            <p className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
-              Let's build a dedicated portal that brings in enquiries, manages them from start to finish, and automates the operations that eat up your day.
+            <p className={`text-sm leading-relaxed ${theme === "dark" ? "text-slate-400" : "text-slate-600"}`}>
+              We'll audit your current process, identify exactly where you're losing opportunities, and build a custom system that captures and converts more leads.
+            </p>
+            <p className={`text-sm ${theme === "dark" ? "text-slate-500" : "text-slate-400"}`}>
+              No pitch. Just honest feedback about your business.
             </p>
           </div>
 
-          <div className="w-full lg:w-auto text-center">
+          <div className="w-full lg:w-auto text-center space-y-3">
             <a
               href="https://calendly.com/olujawo1996"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full lg:w-auto inline-flex h-14 items-center justify-center rounded-2xl bg-brand-blue px-8 text-base font-bold text-white shadow-lg hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_25px_rgba(0,64,192,0.4)] hover:scale-[1.02]"
+              className="w-full lg:w-auto inline-flex h-14 items-center justify-center rounded-2xl bg-brand-warm px-8 text-base font-bold text-white shadow-lg hover:bg-brand-warm/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_25px_rgba(192,122,58,0.4)] hover:scale-[1.02]"
             >
-              Book a Strategy Call
+              Book Your Free Strategy Call
             </a>
-            <p className={`text-xs mt-3 ${theme === "dark" ? "text-slate-500" : "text-slate-400"}`}>
-              Projects from ₦300,000 · Custom quote for your business
+            <p className={`text-xs ${theme === "dark" ? "text-slate-500" : "text-slate-400"}`}>
+              Most projects ship in 3–4 weeks · Starting at ₦300,000
             </p>
           </div>
         </div>

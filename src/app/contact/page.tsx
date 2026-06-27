@@ -61,7 +61,7 @@ export default function Contact() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-24">
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
-        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-blue bg-brand-blue/10 border border-brand-blue/20">
+        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-warm bg-brand-warm/10 border border-brand-warm/20">
           <Sparkles className="h-3.5 w-3.5" />
           <span>Consultation Intake</span>
         </div>
@@ -82,7 +82,7 @@ export default function Contact() {
             theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200"
           }`}>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
+              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-warm/10 text-brand-warm">
                 <Calendar className="h-5 w-5" />
               </div>
               <div>
@@ -99,7 +99,7 @@ export default function Contact() {
               href="https://calendly.com/olujawo1996"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white hover:bg-brand-blue/90 transition-all duration-200 cursor-pointer"
+              className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand-warm px-6 text-sm font-semibold text-white hover:bg-brand-warm/90 transition-all duration-200 cursor-pointer"
             >
               <Calendar className="h-4 w-4 mr-2" />
               Book a Discovery Call
@@ -119,11 +119,11 @@ export default function Contact() {
               href={`mailto:${portfolioConfig.personal.email}`}
               className={`flex items-center space-x-4 p-5 rounded-2xl border transition-all duration-200 cursor-pointer hover:translate-x-1 ${
                 theme === "dark"
-                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30 text-slate-200"
-                  : "bg-white border-slate-200 hover:border-brand-blue/30 text-slate-700"
+                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30 text-slate-200"
+                  : "bg-white border-slate-200 hover:border-brand-warm/30 text-slate-700"
               }`}
             >
-              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
+              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-warm/10 text-brand-warm">
                 <Mail className="h-5 w-5" />
               </div>
               <div>
@@ -139,8 +139,8 @@ export default function Contact() {
               rel="noopener noreferrer"
               className={`flex items-center space-x-4 p-5 rounded-2xl border transition-all duration-200 cursor-pointer hover:translate-x-1 ${
                 theme === "dark"
-                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30 text-slate-200"
-                  : "bg-white border-slate-200 hover:border-brand-blue/30 text-slate-700"
+                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30 text-slate-200"
+                  : "bg-white border-slate-200 hover:border-brand-warm/30 text-slate-700"
               }`}
             >
               <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500">
@@ -159,8 +159,8 @@ export default function Contact() {
               rel="noopener noreferrer"
               className={`flex items-center space-x-4 p-5 rounded-2xl border transition-all duration-200 cursor-pointer hover:translate-x-1 ${
                 theme === "dark"
-                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-blue/30 text-slate-200"
-                  : "bg-white border-slate-200 hover:border-brand-blue/30 text-slate-700"
+                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30 text-slate-200"
+                  : "bg-white border-slate-200 hover:border-brand-warm/30 text-slate-700"
               }`}
             >
               <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-slate-850 text-slate-400 border border-slate-850">
@@ -177,7 +177,7 @@ export default function Contact() {
           <div className={`rounded-2xl border overflow-hidden p-6 relative ${
             theme === "dark" ? "bg-slate-900/25 border-slate-800" : "bg-slate-50 border-slate-200"
           }`}>
-            <div className="flex items-center space-x-2 text-brand-blue mb-4">
+            <div className="flex items-center space-x-2 text-brand-warm mb-4">
               <MapPin className="h-4.5 w-4.5" />
               <span className="text-xs font-semibold uppercase tracking-wider">Digital Office Location</span>
             </div>
@@ -187,9 +187,9 @@ export default function Contact() {
               theme === "dark" ? "bg-slate-950/60 border-slate-850" : "bg-white border-slate-200"
             }`}>
               {/* Dynamic radar circles represent local presence */}
-              <div className="absolute h-16 w-16 rounded-full bg-brand-blue/10 animate-ping" />
-              <div className="absolute h-8 w-8 rounded-full bg-brand-blue/20 animate-pulse" />
-              <div className="absolute h-3.5 w-3.5 rounded-full bg-brand-blue border border-white dark:border-slate-900 shadow-md" />
+              <div className="absolute h-16 w-16 rounded-full bg-brand-warm/10 animate-ping" />
+              <div className="absolute h-8 w-8 rounded-full bg-brand-warm/20 animate-pulse" />
+              <div className="absolute h-3.5 w-3.5 rounded-full bg-brand-warm border border-white dark:border-slate-900 shadow-md" />
               
               {/* Monospace coordinates */}
               <span className="absolute bottom-2 right-2 text-[10px] font-mono text-slate-500">
@@ -215,7 +215,7 @@ export default function Contact() {
           {status === "success" ? (
             /* Success State */
             <div className="text-center py-12 space-y-6 flex flex-col items-center">
-              <div className="h-16 w-16 rounded-2xl bg-brand-blue/15 text-brand-blue flex items-center justify-center shadow-[0_0_20px_rgba(0,64,192,0.2)]">
+              <div className="h-16 w-16 rounded-2xl bg-brand-warm/15 text-brand-warm flex items-center justify-center shadow-[0_0_20px_rgba(192,122,58,0.2)]">
                 <CheckCircle2 className="h-10 w-10" />
               </div>
               <div className="space-y-2">
@@ -230,7 +230,7 @@ export default function Contact() {
               </div>
               <button
                 onClick={() => setStatus("idle")}
-                className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white cursor-pointer"
+                className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-warm px-6 text-sm font-semibold text-white cursor-pointer"
               >
                 Submit Another Request
               </button>
@@ -257,8 +257,8 @@ export default function Contact() {
                     errors.name
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
                       : theme === "dark"
-                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-blue/50 focus:bg-slate-900"
-                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-blue/50 focus:bg-white"
+                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-warm/50 focus:bg-slate-900"
+                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50 focus:bg-white"
                   }`}
                 />
                 {errors.name && (
@@ -281,8 +281,8 @@ export default function Contact() {
                     errors.email
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
                       : theme === "dark"
-                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-blue/50 focus:bg-slate-900"
-                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-blue/50 focus:bg-white"
+                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-warm/50 focus:bg-slate-900"
+                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50 focus:bg-white"
                   }`}
                 />
                 {errors.email && (
@@ -301,8 +301,8 @@ export default function Contact() {
                   onChange={(e) => setProjectType(e.target.value)}
                   className={`w-full px-4 py-3 text-sm rounded-xl outline-none border cursor-pointer ${
                     theme === "dark"
-                      ? "bg-slate-900 text-white border-slate-850 focus:border-brand-blue/50"
-                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-blue/50"
+                      ? "bg-slate-900 text-white border-slate-850 focus:border-brand-warm/50"
+                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50"
                   }`}
                 >
                   <option value="Web App Development">Web App Development (Automation/SaaS)</option>
@@ -324,8 +324,8 @@ export default function Contact() {
                     errors.message
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
                       : theme === "dark"
-                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-blue/50 focus:bg-slate-900"
-                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-blue/50 focus:bg-white"
+                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-warm/50 focus:bg-slate-900"
+                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50 focus:bg-white"
                   }`}
                 />
                 {errors.message && (
@@ -348,10 +348,10 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className={`w-full inline-flex h-12 items-center justify-center rounded-xl bg-brand-blue font-bold text-white shadow-md transition-all duration-200 cursor-pointer ${
+                className={`w-full inline-flex h-12 items-center justify-center rounded-xl bg-brand-warm font-bold text-white shadow-md transition-all duration-200 cursor-pointer ${
                   status === "loading"
-                    ? "opacity-80 cursor-wait bg-brand-blue/90"
-                    : "hover:bg-brand-blue/90 hover:shadow-[0_0_20px_rgba(0,64,192,0.3)] hover:scale-[1.01]"
+                    ? "opacity-80 cursor-wait bg-brand-warm/90"
+                    : "hover:bg-brand-warm/90 hover:shadow-[0_0_20px_rgba(192,122,58,0.3)] hover:scale-[1.01]"
                 }`}
               >
                 {status === "loading" ? (

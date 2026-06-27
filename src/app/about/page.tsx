@@ -49,7 +49,7 @@ export default function About() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-24">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-blue bg-brand-blue/10 border border-brand-blue/20">
+        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-warm bg-brand-warm/10 border border-brand-warm/20">
           <Sparkles className="h-3.5 w-3.5" />
           <span>How I Work</span>
         </div>
@@ -70,12 +70,12 @@ export default function About() {
             <img
               src="/images/segun.png"
               alt={personal.name}
-              className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl object-cover object-[center_37%] border-2 border-brand-blue/20 shadow-lg"
+              className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl object-cover object-[center_37%] border-2 border-brand-warm/20 shadow-lg"
             />
           </div>
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-4">
-              <h2 className="text-lg sm:text-xl font-bold font-heading text-brand-blue">
+              <h2 className="text-lg sm:text-xl font-bold font-heading text-brand-warm">
                 {personal.name}
               </h2>
               <span className="hidden sm:block h-4 w-px bg-slate-400/40" />
@@ -98,7 +98,7 @@ export default function About() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/projects"
-            className="inline-flex items-center space-x-1.5 h-10 rounded-xl bg-brand-blue px-5 text-sm font-semibold text-white hover:bg-brand-blue/90 transition-all duration-200"
+            className="inline-flex items-center space-x-1.5 h-10 rounded-xl bg-brand-warm px-5 text-sm font-semibold text-white hover:bg-brand-warm/90 transition-all duration-200"
           >
             <span>View My Work</span>
             <ArrowRight className="h-4 w-4" />
@@ -127,11 +127,11 @@ export default function About() {
               key={service.title}
               className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] ${
                 theme === "dark"
-                  ? "bg-slate-900/30 border-slate-800 hover:border-brand-blue/30"
-                  : "bg-white border-slate-200 hover:border-brand-blue/30 hover:shadow-md"
+                  ? "bg-slate-900/30 border-slate-800 hover:border-brand-warm/30"
+                  : "bg-white border-slate-200 hover:border-brand-warm/30 hover:shadow-md"
               }`}
             >
-              <div className="h-10 w-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-4">
+              <div className="h-10 w-10 rounded-xl bg-brand-warm/10 flex items-center justify-center text-brand-warm mb-4">
                 <service.icon className="h-5 w-5" />
               </div>
               <h3 className="text-base font-bold font-heading mb-2">{service.title}</h3>
@@ -153,8 +153,8 @@ export default function About() {
         <div className="space-y-6">
           {approach.map((step, index) => (
             <div key={index} className="flex items-start space-x-4">
-              <div className="flex-shrink-0 h-8 w-8 rounded-full bg-brand-blue/10 flex items-center justify-center">
-                <CheckCircle className="h-4 w-4 text-brand-blue" />
+              <div className="flex-shrink-0 h-8 w-8 rounded-full bg-brand-warm/10 flex items-center justify-center">
+                <CheckCircle className="h-4 w-4 text-brand-warm" />
               </div>
               <div>
                 <span className={`text-sm font-semibold ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>
@@ -181,7 +181,7 @@ export default function About() {
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center space-x-1.5 h-12 rounded-xl bg-brand-blue px-6 text-sm font-bold text-white hover:bg-brand-blue/90 transition-all duration-200 hover:shadow-[0_0_20px_rgba(0,64,192,0.3)]"
+          className="inline-flex items-center space-x-1.5 h-12 rounded-xl bg-brand-warm px-6 text-sm font-bold text-white hover:bg-brand-warm/90 transition-all duration-200 hover:shadow-[0_0_20px_rgba(192,122,58,0.3)]"
         >
           <span>Start a Conversation</span>
           <ArrowRight className="h-4 w-4" />

@@ -16,7 +16,7 @@ export default function MobileStickyCTA() {
           href={portfolioConfig.personal.calendly}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 inline-flex h-10 items-center justify-center rounded-xl bg-brand-blue px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-blue/90 transition-all duration-200"
+          className="flex-shrink-0 inline-flex h-10 items-center justify-center rounded-xl bg-brand-warm px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-warm/90 transition-all duration-200"
         >
           Book a Call
         </a>
