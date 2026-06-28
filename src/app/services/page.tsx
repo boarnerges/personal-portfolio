@@ -132,7 +132,7 @@ export default function ServicesPage() {
 
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <a
-                      href="https://calendly.com/olujawo1996"
+                      href="https://calendly.com/olujawo"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex h-12 min-h-[44px] items-center justify-center rounded-xl bg-brand-primary px-6 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200"
@@ -166,7 +166,7 @@ export default function ServicesPage() {
           Every project starts with a free strategy call. We'll discuss your business, identify where you're losing opportunities, and recommend the right system — no pressure, no pitch.
         </p>
         <a
-          href="https://calendly.com/olujawo1996"
+          href="https://calendly.com/olujawo"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex h-12 min-h-[44px] items-center justify-center rounded-xl bg-brand-primary px-8 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200"

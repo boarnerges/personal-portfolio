@@ -24,7 +24,7 @@ export const portfolioConfig = {
     tagline: "Helping service businesses grow with lead-generating websites, enquiry management, and business automation.",
     about: "I build custom websites and software that help service businesses attract customers, manage enquiries, and automate their operations. Every project is purpose-built — from SEO-tuned landing pages that rank on Google to booking portals and automated workflows that replace manual spreadsheets.",
     email: "olusegun.work@gmail.com",
-    calendly: "https://calendly.com/olujawo1996",
+    calendly: "https://calendly.com/olujawo",
     socials: {
       linkedin: "http://linkedin.com/in/owolabi-olusegun/",
       github: "https://github.com/boarnerges",

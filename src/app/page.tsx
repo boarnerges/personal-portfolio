@@ -129,7 +129,7 @@ export default function Home() {
             {/* CTA Buttons — single primary action */}
             <div className="flex items-center justify-center mt-8">
             <motion.a
-              href="https://calendly.com/olujawo1996"
+              href="https://calendly.com/olujawo"
               target="_blank"
               rel="noopener noreferrer"
               className={primaryCTA}
@@ -676,7 +676,7 @@ export default function Home() {
                 <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>CMS included — you can update content</Small></li>
               </ul>
               <a
-                href="https://calendly.com/olujawo1996"
+                href="https://calendly.com/olujawo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 text-center"
@@ -700,7 +700,7 @@ export default function Home() {
                 <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>CRM integration ready</Small></li>
               </ul>
               <a
-                href="https://calendly.com/olujawo1996"
+                href="https://calendly.com/olujawo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 text-center"
@@ -721,7 +721,7 @@ export default function Home() {
                 <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Team training & documentation</Small></li>
               </ul>
               <a
-                href="https://calendly.com/olujawo1996"
+                href="https://calendly.com/olujawo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 text-center"
@@ -751,7 +751,7 @@ export default function Home() {
               Not sure what you need? Book a free strategy call and I'll give you a fixed price.
             </Small>
             <a
-              href="https://calendly.com/olujawo1996"
+              href="https://calendly.com/olujawo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 h-11 rounded-xl bg-brand-primary px-6 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200"
@@ -807,7 +807,7 @@ export default function Home() {
               Still have questions?
             </Small>
             <a
-              href="https://calendly.com/olujawo1996"
+              href="https://calendly.com/olujawo"
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex items-center space-x-2 h-10 rounded-xl border-2 border-brand-primary px-5 text-sm font-semibold text-brand-primary transition-all duration-200 hover:bg-brand-primary/5 ${theme === "dark" ? "" : ""}`}
@@ -879,7 +879,7 @@ export default function Home() {
               <span>Respond within 2 hours · No hidden fees · 90-day guarantee</span>
             </div>
             <a
-              href="https://calendly.com/olujawo1996"
+              href="https://calendly.com/olujawo"
               target="_blank"
               rel="noopener noreferrer"
               className={primaryCTA + " h-14 px-10"}
