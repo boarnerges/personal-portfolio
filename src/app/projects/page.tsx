@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import { portfolioConfig, Project } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
-import { Search, ExternalLink, ChevronDown, ChevronUp, Sparkles, TrendingUp } from "lucide-react";
+            import { Search, ExternalLink, ChevronDown, ChevronUp, Sparkles, TrendingUp } from "lucide-react";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 export default function Projects() {
   const { theme } = useTheme();
@@ -37,7 +38,7 @@ export default function Projects() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-24">
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
-        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-warm bg-brand-warm/10 border border-brand-warm/20">
+        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-primary bg-brand-primary/10 border border-brand-primary/20">
           <Sparkles className="h-3.5 w-3.5" />
           <span>Case Studies</span>
         </div>
@@ -59,7 +60,7 @@ export default function Projects() {
               onClick={() => setSelectedCategory(category)}
               className={`px-4.5 py-2 text-xs font-semibold rounded-xl transition-all duration-200 cursor-pointer ${
                 selectedCategory === category
-                  ? "bg-brand-warm text-white shadow-md shadow-brand-warm/20"
+                  ? "bg-brand-primary text-white shadow-md shadow-brand-primary/20"
                   : theme === "dark"
                   ? "bg-slate-900/60 text-slate-350 hover:bg-slate-800 border border-slate-800"
                   : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
@@ -82,8 +83,8 @@ export default function Projects() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className={`w-full pl-10 pr-4 py-2 text-sm rounded-xl outline-none transition-all duration-200 border ${
               theme === "dark"
-                ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-warm/50 focus:bg-slate-900"
-                : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50 focus:bg-white"
+                ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-primary/50 focus:bg-slate-900"
+                : "bg-white text-slate-900 border-slate-200 focus:border-brand-primary/50 focus:bg-white"
             }`}
           />
         </div>
@@ -100,8 +101,8 @@ export default function Projects() {
                 id={project.id}
                 className={`rounded-2xl border transition-all duration-300 ${
                   theme === "dark"
-                    ? "bg-slate-900/35 border-slate-800 hover:border-brand-warm/25"
-                    : "bg-white border-slate-200 hover:border-brand-warm/25 hover:shadow-md"
+                    ? "bg-slate-900/35 border-slate-800 hover:border-brand-primary/25"
+                    : "bg-white border-slate-200 hover:border-brand-primary/25 hover:shadow-md"
                 }`}
               >
                 {/* Header info */}
@@ -113,7 +114,7 @@ export default function Projects() {
                       }`}>
                         {project.category}
                       </span>
-                      <div className="inline-flex items-center space-x-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold text-brand-warm bg-brand-warm/10">
+                      <div className="inline-flex items-center space-x-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold text-brand-primary bg-brand-primary/10">
                         <TrendingUp className="h-3.5 w-3.5" />
                         <span>{project.impact}</span>
                       </div>
@@ -142,9 +143,9 @@ export default function Projects() {
                     >
                       <span>{isExpanded ? "Collapse Case" : "Read Case Study"}</span>
                       {isExpanded ? (
-                        <ChevronUp className="h-4 w-4 text-brand-warm" />
+                        <ChevronUp className="h-4 w-4 text-brand-primary" />
                       ) : (
-                        <ChevronDown className="h-4 w-4 text-brand-warm" />
+                        <ChevronDown className="h-4 w-4 text-brand-primary" />
                       )}
                     </button>
                     
@@ -175,11 +176,13 @@ export default function Projects() {
                       {/* Left details */}
                       <div className="lg:col-span-2 space-y-4">
                         <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 border border-slate-200 dark:border-slate-800">
-                          <img 
-                            src={`/images/${project.image}.jpg`} 
-                            alt={project.title}
-                            className="w-full h-full object-cover object-top"
-                          />
+                          <ImageWithFallback
+                              src={`/images/${project.image}.jpg`}
+                              alt={`${project.title} — case study showing lead generation website for ${project.category} service business`}
+                              className="w-full h-full object-cover object-top"
+                              width={640}
+                              height={360}
+                            />
                         </div>
                         {project.longDescription.split('\n\n').map((section, idx) => {
                           const isChallenge = section.startsWith('**The Challenge**');
@@ -192,7 +195,7 @@ export default function Projects() {
                             const color = isChallenge 
                               ? 'text-amber-600 dark:text-amber-400' 
                               : isSolution 
-                                ? 'text-brand-warm' 
+                                ? 'text-brand-primary' 
                                 : 'text-emerald-600 dark:text-emerald-400';
                             const icon = isChallenge ? '!' : isSolution ? '→' : '✓';
                             return (
@@ -234,8 +237,8 @@ export default function Projects() {
                           }`}>
                             Key System Output
                           </h4>
-                          <p className="text-sm font-bold text-brand-warm flex items-center space-x-1.5">
-                            <span className="h-2 w-2 rounded-full bg-brand-warm" />
+                          <p className="text-sm font-bold text-brand-primary flex items-center space-x-1.5">
+                            <span className="h-2 w-2 rounded-full bg-brand-primary" />
                             <span>{project.impact}</span>
                           </p>
                         </div>
@@ -265,7 +268,7 @@ export default function Projects() {
                         <div className="pt-2">
                           <a
                             href={project.liveUrl}
-                            className="flex items-center justify-center space-x-2 w-full py-2.5 text-xs font-bold text-white bg-brand-warm hover:bg-brand-warm/90 rounded-lg transition-all duration-200 cursor-pointer"
+                            className="flex items-center justify-center space-x-2 w-full py-2.5 text-xs font-bold text-white bg-brand-primary hover:bg-brand-primary/90 rounded-lg transition-all duration-200 cursor-pointer"
                           >
                             <span>Launch Live System Demo</span>
                             <ExternalLink className="h-3.5 w-3.5" />

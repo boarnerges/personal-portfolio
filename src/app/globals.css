@@ -4,34 +4,33 @@
   --font-heading: var(--font-poppins);
   --font-sans: var(--font-opensans);
   
-  --color-brand-blue: #0040c0;
-  --color-brand-warm: #c07a3a;
+  --color-brand-primary: #047857;
+  --color-brand-primary-hover: #03664A;
+  --color-brand-primary-light: #D1FAE5;
+  --color-brand-secondary: #F59E0B;
+  --color-brand-secondary-light: #FEF3C7;
   --color-brand-navy: #03060e;
   --color-brand-navy-light: #050a16;
-  --color-brand-slate-900: #0f172a;
-  --color-brand-slate-950: #020617;
-  --color-brand-slate-800: #1e293b;
-  --color-brand-slate-50: #f8fafc;
 }
 
 :root {
-  --background: #f8fafc; /* slate-50 */
-  --foreground: #0f172a; /* slate-900 */
+  --background: #F9FAFB;
+  --foreground: #1F2937;
   --card-bg: #ffffff;
-  --card-border: #e2e8f0;
-  --card-text-primary: #1e293b;
-  --card-text-secondary: #64748b;
-  --card-text-muted: #94a3b8;
+  --card-border: #E5E7EB;
+  --card-text-primary: #1F2937;
+  --card-text-secondary: #6B7280;
+  --card-text-muted: #9CA3AF;
 }
 
 /* Class-based dark variant manually configured for Tailwind */
 .dark {
-  --background: #03060e; /* near-black with subtle navy */
-  --foreground: #f8fafc; /* slate-50 */
+  --background: #03060e;
+  --foreground: #F9FAFB;
   --card-bg: #0f172a;
   --card-border: #1e293b;
-  --card-text-primary: #e2e8f0;
-  --card-text-secondary: #94a3b8;
+  --card-text-primary: #E5E7EB;
+  --card-text-secondary: #9CA3AF;
   --card-text-muted: #64748b;
 }
 
@@ -45,11 +44,11 @@ body {
 
 /* Custom glowing effects for neon details */
 .glow-text-blue {
-  text-shadow: 0 0 10px rgba(192, 122, 58, 0.5), 0 0 20px rgba(192, 122, 58, 0.2);
+  text-shadow: 0 0 10px rgba(4, 120, 87, 0.5), 0 0 20px rgba(4, 120, 87, 0.2);
 }
 
 .glow-box-blue {
-  box-shadow: 0 0 20px rgba(192, 122, 58, 0.15);
+  box-shadow: 0 0 20px rgba(4, 120, 87, 0.15);
 }
 
 /* Custom glassmorphic styles */
@@ -91,9 +90,21 @@ body {
   }
 }
 
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Focus styles for keyboard navigation */
 *:focus-visible {
-  outline: 2px solid #c07a3a;
+  outline: 2px solid #047857;
   outline-offset: 2px;
   border-radius: 4px;
 }

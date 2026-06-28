@@ -5,6 +5,7 @@ import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
 import { Code2, TrendingUp, Database, Settings, Target, Sparkles, ArrowRight, CheckCircle } from "lucide-react";
 import Link from "next/link";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 const services = [
   {
@@ -49,7 +50,7 @@ export default function About() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-24">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-warm bg-brand-warm/10 border border-brand-warm/20">
+        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-primary bg-brand-primary/10 border border-brand-primary/20">
           <Sparkles className="h-3.5 w-3.5" />
           <span>How I Work</span>
         </div>
@@ -67,15 +68,17 @@ export default function About() {
       }`}>
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="flex-shrink-0">
-            <img
+            <ImageWithFallback
               src="/images/segun.png"
-              alt={personal.name}
-              className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl object-cover object-[center_37%] border-2 border-brand-warm/20 shadow-lg"
+              alt="Segun Owolabi — founder and lead developer"
+              className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl object-cover object-[center_37%] border-2 border-brand-primary/20 shadow-lg"
+              width={192}
+              height={192}
             />
           </div>
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-4">
-              <h2 className="text-lg sm:text-xl font-bold font-heading text-brand-warm">
+              <h2 className="text-lg sm:text-xl font-bold font-heading text-brand-primary">
                 {personal.name}
               </h2>
               <span className="hidden sm:block h-4 w-px bg-slate-400/40" />
@@ -98,21 +101,23 @@ export default function About() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/projects"
-            className="inline-flex items-center space-x-1.5 h-10 rounded-xl bg-brand-warm px-5 text-sm font-semibold text-white hover:bg-brand-warm/90 transition-all duration-200"
+            className="inline-flex items-center space-x-1.5 h-10 rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white hover:bg-brand-primary/90 transition-all duration-200"
           >
             <span>View My Work</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link
-            href="/contact"
+          <a
+            href={portfolioConfig.personal.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`inline-flex items-center space-x-1.5 h-10 rounded-xl border px-5 text-sm font-semibold transition-all duration-200 ${
               theme === "dark"
                 ? "border-slate-700 text-slate-300 hover:bg-slate-800"
                 : "border-slate-300 text-slate-700 hover:bg-slate-50"
             }`}
           >
-            <span>Book a Call</span>
-          </Link>
+            <span>Book Free Strategy Call</span>
+          </a>
         </div>
       </div>
 
@@ -127,11 +132,11 @@ export default function About() {
               key={service.title}
               className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 hover:scale-[1.02] ${
                 theme === "dark"
-                  ? "bg-slate-900/30 border-slate-800 hover:border-brand-warm/30"
-                  : "bg-white border-slate-200 hover:border-brand-warm/30 hover:shadow-md"
+                  ? "bg-slate-900/30 border-slate-800 hover:border-brand-primary/30"
+                  : "bg-white border-slate-200 hover:border-brand-primary/30 hover:shadow-md"
               }`}
             >
-              <div className="h-10 w-10 rounded-xl bg-brand-warm/10 flex items-center justify-center text-brand-warm mb-4">
+              <div className="h-10 w-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-4">
                 <service.icon className="h-5 w-5" />
               </div>
               <h3 className="text-base font-bold font-heading mb-2">{service.title}</h3>
@@ -153,8 +158,8 @@ export default function About() {
         <div className="space-y-6">
           {approach.map((step, index) => (
             <div key={index} className="flex items-start space-x-4">
-              <div className="flex-shrink-0 h-8 w-8 rounded-full bg-brand-warm/10 flex items-center justify-center">
-                <CheckCircle className="h-4 w-4 text-brand-warm" />
+              <div className="flex-shrink-0 h-8 w-8 rounded-full bg-brand-primary/10 flex items-center justify-center">
+                <CheckCircle className="h-4 w-4 text-brand-primary" />
               </div>
               <div>
                 <span className={`text-sm font-semibold ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>
@@ -181,7 +186,7 @@ export default function About() {
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center space-x-1.5 h-12 rounded-xl bg-brand-warm px-6 text-sm font-bold text-white hover:bg-brand-warm/90 transition-all duration-200 hover:shadow-[0_0_20px_rgba(192,122,58,0.3)]"
+          className="inline-flex items-center space-x-1.5 h-12 rounded-xl bg-brand-primary px-6 text-sm font-bold text-white hover:bg-brand-primary/90 transition-all duration-200 hover:shadow-[0_0_20px_rgba(4,120,87,0.3)]"
         >
           <span>Start a Conversation</span>
           <ArrowRight className="h-4 w-4" />

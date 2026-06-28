@@ -31,7 +31,7 @@ const cards = [
   {
     id: "automation",
     title: "Automation Completed",
-    color: "brand-warm",
+    color: "brand-primary",
     dot: "",
     time: "Just now",
     lines: [
@@ -78,7 +78,7 @@ export default function HeroFloatingCards() {
               <div
                 onClick={() => toggleCard(card.id)}
                 className={`rounded-xl shadow-xl border backdrop-blur-md overflow-hidden transition-all duration-300 ${
-                  isOpen ? "ring-2 ring-brand-warm/30 shadow-2xl scale-[1.02]" : "hover:shadow-2xl hover:scale-[1.01]"
+                  isOpen ? "ring-2 ring-brand-primary/30 shadow-2xl scale-[1.02]" : "hover:shadow-2xl hover:scale-[1.01]"
                 }`}
                 style={{
                   backgroundColor: "var(--card-bg)",
@@ -89,10 +89,10 @@ export default function HeroFloatingCards() {
                 <div className="flex items-center justify-between p-3.5">
                   <div className="flex items-center space-x-2">
                     <div className={`h-2 w-2 rounded-full ${card.dot} ${
-                      card.color === "emerald" ? "bg-emerald-500" : card.color === "amber" ? "bg-amber-500" : "bg-brand-warm"
+                      card.color === "emerald" ? "bg-emerald-500" : card.color === "amber" ? "bg-amber-500" : "bg-brand-primary"
                     }`} />
                     <span className={`text-xs font-semibold ${
-                      card.color === "emerald" ? "text-emerald-600" : card.color === "amber" ? "text-amber-600" : "text-brand-warm"
+                      card.color === "emerald" ? "text-emerald-600" : card.color === "amber" ? "text-amber-600" : "text-brand-primary"
                     }`}>{card.title}</span>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -125,7 +125,7 @@ export default function HeroFloatingCards() {
                       {card.id === "followup" && "Follow-up reminder: proposal was sent 5 days ago. Close or extend."}
                       {card.id === "automation" && "Enquiry-to-CRM pipeline completed. 3 automated actions triggered."}
                     </p>
-                    <button className="text-xs font-semibold text-brand-warm hover:underline">
+                    <button className="text-xs font-semibold text-brand-primary hover:underline">
                       {card.id === "enquiry" && "Qualify Lead →"}
                       {card.id === "followup" && "View Proposal →"}
                       {card.id === "automation" && "View Report →"}

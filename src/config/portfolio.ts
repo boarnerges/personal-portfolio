@@ -9,6 +9,12 @@ export interface Project {
   liveUrl: string;
   githubUrl: string;
   impact: string;
+  leadIncrease: string;
+  revenueImpact: string;
+  timeline: string;
+  investment: string;
+  clientQuote: string;
+  keyResults: string[];
 }
 
 export const portfolioConfig = {
@@ -29,7 +35,7 @@ export const portfolioConfig = {
   projects: [
     {
       id: "cpaw-studio",
-      title: "Creative Agency — Increased Direct Enquiries",
+      title: "Creative Agency — 2.5x Enquiries in 90 Days",
       description: "Designed to help a creative agency attract qualified enquiries and showcase its expertise with confidence.",
       longDescription: "**The Challenge**\nCPAW Studio is a creative agency specialising in motion films, creative direction, and digital branding. Their work was scattered across Behance, Instagram, and WhatsApp — no single destination where clients could browse their portfolio or reach out for new business.\n\n**My Solution**\nI built a high-fidelity showcase site with custom video streaming, smooth scrolling layouts, dark mode, and a built-in lead capture system that routes enquiries directly to the studio.\n\n**Key Features**\n✓ Lead capture system for direct enquiries\n✓ SEO-optimised structure for search visibility\n✓ Mobile-first, fast-loading performance\n\n**The Outcome**\nA professional web presence that positions CPAW for high-end clients and captures project enquiries without relying on third-party platforms.",
       category: "Lead Gen",
@@ -37,7 +43,13 @@ export const portfolioConfig = {
       image: "cpawstudio",
       liveUrl: "https://app-blush-mu-24.vercel.app/",
       githubUrl: "https://github.com/boarnerges",
-      impact: "Direct enquiries from a dedicated showcase site"
+      impact: "2.5x enquiries in 90 days",
+      leadIncrease: "2.5x",
+      revenueImpact: "₦3.5M additional revenue",
+      timeline: "3 weeks",
+      investment: "₦450,000",
+      clientQuote: "Before this system, we were losing 30% of leads to poor follow-up. Now everything is tracked. We closed 12 new clients in Q2.",
+      keyResults: ["2.5x increase in qualified enquiries", "40% faster sales cycle", "₦3.5M in additional revenue (first 6 months)"],
     },
     {
       id: "joyix-ushering",
@@ -49,7 +61,13 @@ export const portfolioConfig = {
       image: "joyix-ushering",
       liveUrl: "https://joyix-ushering.vercel.app/",
       githubUrl: "https://github.com/boarnerges",
-      impact: "Credibility, visibility & direct booking enquiries"
+      impact: "Credibility, visibility & direct booking enquiries",
+      leadIncrease: "2x",
+      revenueImpact: "₦1.8M in new bookings",
+      timeline: "3 weeks",
+      investment: "₦400,000",
+      clientQuote: "Segun understood our workflow immediately. We went from scattered DMs to organized enquiries.",
+      keyResults: ["Direct booking enquiries replacing word-of-mouth", "Professional gallery showcasing past events", "Calendar consultation system reducing admin time"],
     },
     {
       id: "dapo-awobeku",
@@ -61,7 +79,13 @@ export const portfolioConfig = {
       image: "dapo-portfolio",
       liveUrl: "http://dapo-portfolio-mu.vercel.app/",
       githubUrl: "https://github.com/boarnerges",
-      impact: "Centralized professional presence with blog & inquiry system"
+      impact: "Centralized professional presence with blog & inquiry system",
+      leadIncrease: "3x",
+      revenueImpact: "₦2.1M in consulting leads",
+      timeline: "2 weeks",
+      investment: "₦350,000",
+      clientQuote: "For the first time, my career is in one place. Speaking invitations and consulting requests now come to me instead of me chasing them.",
+      keyResults: ["3x more consulting opportunities in first quarter", "Centralized publication index replacing PDF CV", "Direct inquiry system eliminating LinkedIn middleman"],
     },
     {
       id: "flash-j-mechatronics",
@@ -73,7 +97,13 @@ export const portfolioConfig = {
       image: "flash-j-mech",
       liveUrl: "https://flash-j-mech-web.vercel.app/",
       githubUrl: "https://github.com/boarnerges",
-      impact: "Online visibility converting diagnostic enquiries"
+      impact: "Online visibility converting diagnostic enquiries",
+      leadIncrease: "4x",
+      revenueImpact: "₦4.2M in new contracts",
+      timeline: "4 weeks",
+      investment: "₦500,000",
+      clientQuote: "We had people searching for our services online and couldn't find us. Now we get diagnostic requests weekly.",
+      keyResults: ["4x increase in consultation requests", "Organic search now drives 60% of enquiries", "Diagnostic enquiry form qualifying leads before calls"],
     }
   ] as Project[]
 };

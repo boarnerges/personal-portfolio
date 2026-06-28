@@ -55,7 +55,7 @@ export default function LeadCapture() {
               : "bg-white border-slate-200 text-slate-700"
           }`}
         >
-          <MessageSquare className="h-5 w-5 text-brand-warm" />
+          <MessageSquare className="h-5 w-5 text-brand-primary" />
           <span className="text-sm font-semibold">Get a Quote</span>
         </button>
       ) : (
@@ -85,7 +85,7 @@ export default function LeadCapture() {
           </div>
 
           {submitted ? (
-            <p className="text-xs text-brand-warm font-semibold text-center py-2">
+            <p className="text-xs text-brand-primary font-semibold text-center py-2">
               Thanks! I'll be in touch.
             </p>
           ) : (
@@ -97,8 +97,8 @@ export default function LeadCapture() {
                 onChange={(e) => setName(e.target.value)}
                 className={`w-full px-3 py-2 text-xs rounded-xl outline-none border transition-colors ${
                   theme === "dark"
-                    ? "bg-slate-800 text-white border-slate-700 focus:border-brand-warm/50"
-                    : "bg-slate-50 text-slate-900 border-slate-200 focus:border-brand-warm/50"
+                    ? "bg-slate-800 text-white border-slate-700 focus:border-brand-primary/50"
+                    : "bg-slate-50 text-slate-900 border-slate-200 focus:border-brand-primary/50"
                 }`}
                 required
               />
@@ -109,14 +109,14 @@ export default function LeadCapture() {
                 onChange={(e) => setEmail(e.target.value)}
                 className={`w-full px-3 py-2 text-xs rounded-xl outline-none border transition-colors ${
                   theme === "dark"
-                    ? "bg-slate-800 text-white border-slate-700 focus:border-brand-warm/50"
-                    : "bg-slate-50 text-slate-900 border-slate-200 focus:border-brand-warm/50"
+                    ? "bg-slate-800 text-white border-slate-700 focus:border-brand-primary/50"
+                    : "bg-slate-50 text-slate-900 border-slate-200 focus:border-brand-primary/50"
                 }`}
                 required
               />
               <button
                 type="submit"
-                className="w-full py-2 text-xs font-bold text-white bg-brand-warm rounded-xl hover:bg-brand-warm/90 transition-all cursor-pointer"
+                className="w-full py-2 text-xs font-bold text-white bg-brand-primary rounded-xl hover:bg-brand-primary/90 transition-all cursor-pointer"
               >
                 Keep Me Posted
               </button>

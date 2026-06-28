@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeContext";
 import { Sun, Moon, Menu, X, ChevronDown } from "lucide-react";
 import { portfolioConfig } from "@/config/portfolio";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -37,16 +38,7 @@ export default function Navbar() {
         } py-3.5 px-6 flex items-center justify-between shadow-lg`}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-warm/10 text-brand-warm group-hover:scale-105 transition-transform duration-200">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5.5 w-5.5">
-              <path d="M12 2L22 12L12 22L2 12Z" />
-            </svg>
-          </div>
-          <span className="text-xl font-bold tracking-tight font-heading">
-            Segun<span className="text-brand-warm glow-text-blue">.O</span>
-          </span>
-        </Link>
+        <Logo />
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8">
@@ -56,7 +48,7 @@ export default function Navbar() {
               href={link.href}
               className={`text-sm font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
                 isActive(link.href)
-                  ? "text-brand-warm"
+                  ? "text-brand-primary"
                   : theme === "dark"
                   ? "text-slate-400 hover:text-white"
                   : "text-slate-600 hover:text-slate-900"
@@ -74,7 +66,7 @@ export default function Navbar() {
             <button
               className={`appearance-none border-0 p-0 bg-transparent cursor-pointer text-sm font-medium tracking-wide transition-colors duration-200 leading-5 ${
                 servicesOpen
-                  ? "text-brand-warm"
+                  ? "text-brand-primary"
                   : theme === "dark"
                   ? "text-slate-400 hover:text-white"
                   : "text-slate-600 hover:text-slate-900"
@@ -113,10 +105,10 @@ export default function Navbar() {
             href="/projects"
             className={`inline-flex items-center h-8 px-4 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
               isActive("/projects")
-                ? "bg-brand-warm text-white"
+                ? "bg-brand-primary text-white"
                 : theme === "dark"
-                ? "bg-brand-warm/10 text-brand-warm hover:bg-brand-warm/20"
-                : "bg-brand-warm/10 text-brand-warm hover:bg-brand-warm/20"
+                ? "bg-brand-primary/10 text-brand-primary hover:bg-brand-primary/20"
+                : "bg-brand-primary/10 text-brand-primary hover:bg-brand-primary/20"
             }`}
           >
             Case Studies
@@ -145,9 +137,9 @@ export default function Navbar() {
             href={portfolioConfig.personal.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-10 items-center justify-center rounded-xl bg-brand-warm px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-warm/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_15px_rgba(192,122,58,0.3)] hover:scale-[1.02]"
+            className="inline-flex h-10 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_15px_rgba(4,120,87,0.3)] hover:scale-[1.02]"
           >
-            Book a Call
+            Book Free Strategy Call
           </a>
         </div>
 
@@ -205,7 +197,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block rounded-xl px-4 py-2.5 text-base font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
                     isActive(link.href)
-                      ? "bg-brand-warm/10 text-brand-warm"
+                      ? "bg-brand-primary/10 text-brand-primary"
                       : theme === "dark"
                       ? "text-slate-400 hover:bg-slate-900 hover:text-white"
                       : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
@@ -221,7 +213,7 @@ export default function Navbar() {
                   onClick={() => setServicesOpen(!servicesOpen)}
                   className={`flex items-center justify-between w-full rounded-xl px-4 py-2.5 text-base font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
                     servicesOpen
-                      ? "bg-brand-warm/10 text-brand-warm"
+                      ? "bg-brand-primary/10 text-brand-primary"
                       : theme === "dark"
                       ? "text-slate-400 hover:bg-slate-900 hover:text-white"
                       : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
@@ -254,7 +246,7 @@ export default function Navbar() {
               <Link
                 href="/projects"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center rounded-xl bg-brand-warm py-2.5 text-base font-semibold text-white shadow-md hover:bg-brand-warm/90 transition-all duration-200"
+                className="flex items-center justify-center rounded-xl bg-brand-primary py-2.5 text-base font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200"
               >
                 Case Studies
               </Link>
@@ -264,9 +256,9 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex w-full items-center justify-center rounded-xl bg-brand-warm py-3 text-base font-semibold text-white shadow-md hover:bg-brand-warm/90 transition-all duration-200 cursor-pointer"
+                  className="flex w-full items-center justify-center rounded-xl bg-brand-primary py-3 text-base font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 cursor-pointer"
                 >
-                  Book a Call
+                  Book Free Strategy Call
                 </a>
               </div>
             </div>

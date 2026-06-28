@@ -5,6 +5,7 @@ import Link from "next/link";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "./ThemeContext";
 import { Mail, ArrowUpRight } from "lucide-react";
+import Logo from "./Logo";
 
 export default function Footer() {
   const { theme } = useTheme();
@@ -23,11 +24,7 @@ export default function Footer() {
           
           {/* Logo & Tagline */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block">
-              <span className="text-xl font-bold tracking-tight font-heading">
-                Segun<span className="text-brand-warm">.O</span>
-              </span>
-            </Link>
+            <Logo />
             <p className={`text-sm leading-relaxed max-w-xs ${
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
@@ -46,21 +43,21 @@ export default function Footer() {
               theme === "dark" ? "text-slate-400" : "text-slate-600"
             }`}>
               <li>
-                <Link href="/projects#cpaw-studio" className="hover:text-brand-warm transition-colors duration-200">Creative Agency &mdash; Lead Gen</Link>
+                <Link href="/projects#cpaw-studio" className="hover:text-brand-primary transition-colors duration-200">Creative Agency &mdash; Lead Gen</Link>
               </li>
               <li>
-                <Link href="/projects#joyix-ushering" className="hover:text-brand-warm transition-colors duration-200">Ushering Agency &mdash; Booking Portal</Link>
+                <Link href="/projects#joyix-ushering" className="hover:text-brand-primary transition-colors duration-200">Ushering Agency &mdash; Booking Portal</Link>
               </li>
               <li>
-                <Link href="/projects#dapo-awobeku" className="hover:text-brand-warm transition-colors duration-200">Health Policy &mdash; Authority Platform</Link>
+                <Link href="/projects#dapo-awobeku" className="hover:text-brand-primary transition-colors duration-200">Health Policy &mdash; Authority Platform</Link>
               </li>
               <li>
-                <Link href="/projects#flash-j-mechatronics" className="hover:text-brand-warm transition-colors duration-200">Mechatronics &mdash; Lead Capture</Link>
+                <Link href="/projects#flash-j-mechatronics" className="hover:text-brand-primary transition-colors duration-200">Mechatronics &mdash; Lead Capture</Link>
               </li>
             </ul>
           </div>
 
-          {/* Reach Out / Socials */}
+          {/* Connect */}
           <div className="space-y-4 md:text-right md:flex md:flex-col md:items-end">
             <h3 className={`text-sm font-semibold tracking-wider uppercase ${
               theme === "dark" ? "text-slate-200" : "text-slate-800"
@@ -108,13 +105,24 @@ export default function Footer() {
             </div>
             
             <a
+              href={portfolioConfig.personal.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex h-10 w-full items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 mt-2 ${
+                theme === "dark" ? "hover:shadow-[0_0_15px_rgba(4,120,87,0.3)]" : ""
+              }`}
+            >
+              Book Free Strategy Call
+            </a>
+
+            <a
               href={portfolioConfig.personal.socials.email}
-              className={`inline-flex items-center space-x-1 mt-4 text-sm font-medium border-b border-transparent transition-colors duration-200 hover:border-brand-warm cursor-pointer ${
+              className={`inline-flex items-center space-x-1 mt-4 text-sm font-medium border-b border-transparent transition-colors duration-200 hover:border-brand-primary cursor-pointer ${
                 theme === "dark" ? "text-slate-300 hover:text-white" : "text-slate-700 hover:text-slate-900"
               }`}
             >
               <span>{portfolioConfig.personal.email}</span>
-              <ArrowUpRight className="h-4 w-4 text-brand-warm" />
+              <ArrowUpRight className="h-4 w-4 text-brand-primary" />
             </a>
           </div>
 
@@ -131,7 +139,7 @@ export default function Footer() {
             &copy; {currentYear} Segun Owolabi. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <Link href="/privacy" className={`hover:text-brand-warm transition-colors duration-200 ${
+            <Link href="/privacy" className={`hover:text-brand-primary transition-colors duration-200 ${
               theme === "dark" ? "text-slate-500" : "text-slate-400"
             }`}>Privacy</Link>
             <span className={theme === "dark" ? "text-slate-700" : "text-slate-300"}>·</span>

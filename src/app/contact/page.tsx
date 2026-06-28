@@ -61,7 +61,7 @@ export default function Contact() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-24">
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
-        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-warm bg-brand-warm/10 border border-brand-warm/20">
+        <div className="inline-flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5 text-brand-primary bg-brand-primary/10 border border-brand-primary/20">
           <Sparkles className="h-3.5 w-3.5" />
           <span>Consultation Intake</span>
         </div>
@@ -82,7 +82,7 @@ export default function Contact() {
             theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200"
           }`}>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-warm/10 text-brand-warm">
+              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary">
                 <Calendar className="h-5 w-5" />
               </div>
               <div>
@@ -96,13 +96,13 @@ export default function Contact() {
               30-minute call to discuss your business needs and see if we're a good fit.
             </p>
             <a
-              href="https://calendly.com/olujawo1996"
+              href={portfolioConfig.personal.calendly}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand-warm px-6 text-sm font-semibold text-white hover:bg-brand-warm/90 transition-all duration-200 cursor-pointer"
+              className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand-primary px-6 text-sm font-semibold text-white hover:bg-brand-primary/90 transition-all duration-200 cursor-pointer"
             >
               <Calendar className="h-4 w-4 mr-2" />
-              Book a Discovery Call
+              Book Free Strategy Call
             </a>
           </div>
 
@@ -119,15 +119,15 @@ export default function Contact() {
               href={`mailto:${portfolioConfig.personal.email}`}
               className={`flex items-center space-x-4 p-5 rounded-2xl border transition-all duration-200 cursor-pointer hover:translate-x-1 ${
                 theme === "dark"
-                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30 text-slate-200"
-                  : "bg-white border-slate-200 hover:border-brand-warm/30 text-slate-700"
+                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-primary/30 text-slate-200"
+                  : "bg-white border-slate-200 hover:border-brand-primary/30 text-slate-700"
               }`}
             >
-              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-warm/10 text-brand-warm">
+              <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary">
                 <Mail className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="text-xs uppercase tracking-wider font-semibold text-slate-500">Email Address</h3>
+                <span className="text-xs uppercase tracking-wider font-semibold text-slate-500">Email Address</span>
                 <p className="text-sm font-medium">{portfolioConfig.personal.email}</p>
               </div>
             </a>
@@ -139,15 +139,15 @@ export default function Contact() {
               rel="noopener noreferrer"
               className={`flex items-center space-x-4 p-5 rounded-2xl border transition-all duration-200 cursor-pointer hover:translate-x-1 ${
                 theme === "dark"
-                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30 text-slate-200"
-                  : "bg-white border-slate-200 hover:border-brand-warm/30 text-slate-700"
+                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-primary/30 text-slate-200"
+                  : "bg-white border-slate-200 hover:border-brand-primary/30 text-slate-700"
               }`}
             >
               <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </div>
               <div>
-                <h3 className="text-xs uppercase tracking-wider font-semibold text-slate-500">LinkedIn Profile</h3>
+                <span className="text-xs uppercase tracking-wider font-semibold text-slate-500">LinkedIn Profile</span>
                 <p className="text-sm font-medium">linkedin.com/in/owolabi-olusegun/</p>
               </div>
             </a>
@@ -159,15 +159,15 @@ export default function Contact() {
               rel="noopener noreferrer"
               className={`flex items-center space-x-4 p-5 rounded-2xl border transition-all duration-200 cursor-pointer hover:translate-x-1 ${
                 theme === "dark"
-                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-warm/30 text-slate-200"
-                  : "bg-white border-slate-200 hover:border-brand-warm/30 text-slate-700"
+                  ? "bg-slate-900/40 border-slate-800 hover:border-brand-primary/30 text-slate-200"
+                  : "bg-white border-slate-200 hover:border-brand-primary/30 text-slate-700"
               }`}
             >
               <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-slate-850 text-slate-400 border border-slate-850">
                 <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
               </div>
               <div>
-                <h3 className="text-xs uppercase tracking-wider font-semibold text-slate-500">GitHub Repository</h3>
+                <span className="text-xs uppercase tracking-wider font-semibold text-slate-500">GitHub Repository</span>
                 <p className="text-sm font-medium">github.com/boarnerges</p>
               </div>
             </a>
@@ -177,7 +177,7 @@ export default function Contact() {
           <div className={`rounded-2xl border overflow-hidden p-6 relative ${
             theme === "dark" ? "bg-slate-900/25 border-slate-800" : "bg-slate-50 border-slate-200"
           }`}>
-            <div className="flex items-center space-x-2 text-brand-warm mb-4">
+            <div className="flex items-center space-x-2 text-brand-primary mb-4">
               <MapPin className="h-4.5 w-4.5" />
               <span className="text-xs font-semibold uppercase tracking-wider">Digital Office Location</span>
             </div>
@@ -187,9 +187,9 @@ export default function Contact() {
               theme === "dark" ? "bg-slate-950/60 border-slate-850" : "bg-white border-slate-200"
             }`}>
               {/* Dynamic radar circles represent local presence */}
-              <div className="absolute h-16 w-16 rounded-full bg-brand-warm/10 animate-ping" />
-              <div className="absolute h-8 w-8 rounded-full bg-brand-warm/20 animate-pulse" />
-              <div className="absolute h-3.5 w-3.5 rounded-full bg-brand-warm border border-white dark:border-slate-900 shadow-md" />
+              <div className="absolute h-16 w-16 rounded-full bg-brand-primary/10 animate-ping" />
+              <div className="absolute h-8 w-8 rounded-full bg-brand-primary/20 animate-pulse" />
+              <div className="absolute h-3.5 w-3.5 rounded-full bg-brand-primary border border-white dark:border-slate-900 shadow-md" />
               
               {/* Monospace coordinates */}
               <span className="absolute bottom-2 right-2 text-[10px] font-mono text-slate-500">
@@ -215,7 +215,7 @@ export default function Contact() {
           {status === "success" ? (
             /* Success State */
             <div className="text-center py-12 space-y-6 flex flex-col items-center">
-              <div className="h-16 w-16 rounded-2xl bg-brand-warm/15 text-brand-warm flex items-center justify-center shadow-[0_0_20px_rgba(192,122,58,0.2)]">
+              <div className="h-16 w-16 rounded-2xl bg-brand-primary/15 text-brand-primary flex items-center justify-center shadow-[0_0_20px_rgba(4,120,87,0.2)]">
                 <CheckCircle2 className="h-10 w-10" />
               </div>
               <div className="space-y-2">
@@ -230,7 +230,7 @@ export default function Contact() {
               </div>
               <button
                 onClick={() => setStatus("idle")}
-                className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-warm px-6 text-sm font-semibold text-white cursor-pointer"
+                className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-6 text-sm font-semibold text-white cursor-pointer"
               >
                 Submit Another Request
               </button>
@@ -257,8 +257,8 @@ export default function Contact() {
                     errors.name
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
                       : theme === "dark"
-                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-warm/50 focus:bg-slate-900"
-                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50 focus:bg-white"
+                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-primary/50 focus:bg-slate-900"
+                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-primary/50 focus:bg-white"
                   }`}
                 />
                 {errors.name && (
@@ -281,8 +281,8 @@ export default function Contact() {
                     errors.email
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
                       : theme === "dark"
-                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-warm/50 focus:bg-slate-900"
-                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50 focus:bg-white"
+                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-primary/50 focus:bg-slate-900"
+                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-primary/50 focus:bg-white"
                   }`}
                 />
                 {errors.email && (
@@ -301,8 +301,8 @@ export default function Contact() {
                   onChange={(e) => setProjectType(e.target.value)}
                   className={`w-full px-4 py-3 text-sm rounded-xl outline-none border cursor-pointer ${
                     theme === "dark"
-                      ? "bg-slate-900 text-white border-slate-850 focus:border-brand-warm/50"
-                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50"
+                      ? "bg-slate-900 text-white border-slate-850 focus:border-brand-primary/50"
+                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-primary/50"
                   }`}
                 >
                   <option value="Web App Development">Web App Development (Automation/SaaS)</option>
@@ -324,8 +324,8 @@ export default function Contact() {
                     errors.message
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
                       : theme === "dark"
-                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-warm/50 focus:bg-slate-900"
-                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-warm/50 focus:bg-white"
+                      ? "bg-slate-900/40 text-white border-slate-850 focus:border-brand-primary/50 focus:bg-slate-900"
+                      : "bg-white text-slate-900 border-slate-200 focus:border-brand-primary/50 focus:bg-white"
                   }`}
                 />
                 {errors.message && (
@@ -340,7 +340,7 @@ export default function Contact() {
               {status === "error" && (
                 <p className={`text-sm text-center ${theme === "dark" ? "text-red-400" : "text-red-600"}`}>
                   Something went wrong. Please email me directly at{" "}
-                  <a href="mailto:olujawo1996@gmail.com" className="underline">olujawo1996@gmail.com</a>.
+                   <a href={`mailto:${portfolioConfig.personal.email}`} className="underline">{portfolioConfig.personal.email}</a>.
                 </p>
               )}
 
@@ -348,10 +348,10 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className={`w-full inline-flex h-12 items-center justify-center rounded-xl bg-brand-warm font-bold text-white shadow-md transition-all duration-200 cursor-pointer ${
+                className={`w-full inline-flex h-12 items-center justify-center rounded-xl bg-brand-primary font-bold text-white shadow-md transition-all duration-200 cursor-pointer ${
                   status === "loading"
-                    ? "opacity-80 cursor-wait bg-brand-warm/90"
-                    : "hover:bg-brand-warm/90 hover:shadow-[0_0_20px_rgba(192,122,58,0.3)] hover:scale-[1.01]"
+                    ? "opacity-80 cursor-wait bg-brand-primary/90"
+                    : "hover:bg-brand-primary/90 hover:shadow-[0_0_20px_rgba(4,120,87,0.3)] hover:scale-[1.01]"
                 }`}
               >
                 {status === "loading" ? (

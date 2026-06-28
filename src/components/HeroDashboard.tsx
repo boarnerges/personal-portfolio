@@ -123,8 +123,8 @@ export default function HeroDashboard() {
             >
               <div className="flex items-center space-x-3">
                 <div className="flex -space-x-1">
-                  <div className="h-6 w-6 rounded-full bg-brand-warm/20 flex items-center justify-center">
-                    <Users className="h-3 w-3 text-brand-warm" />
+                  <div className="h-6 w-6 rounded-full bg-brand-primary/20 flex items-center justify-center">
+                    <Users className="h-3 w-3 text-brand-primary" />
                   </div>
                 </div>
                 <span className="text-xs font-semibold" style={{ color: "var(--card-text-primary)" }}>Enquiry Dashboard</span>
@@ -174,13 +174,13 @@ export default function HeroDashboard() {
                 style={{ borderColor: "var(--card-border)" }}
               >
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-4 w-4 text-brand-warm flex-shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-brand-primary flex-shrink-0" />
                   <div>
                     <div className="text-xs font-semibold" style={{ color: "var(--card-text-primary)" }}>3-Bedroom Painting Quote</div>
                     <div className="text-[10px]" style={{ color: "var(--card-text-muted)" }}>Estimate sent • Awaiting response</div>
                   </div>
                 </div>
-                <div className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-brand-warm/10 text-brand-warm">
+                <div className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary">
                   Proposal
                 </div>
               </div>
