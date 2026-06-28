@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "@/components/ThemeContext";
-import { ArrowRight, Eye, MessageSquare, Zap, TrendingUp, Wrench, ZapIcon, Target, ChevronDown, ExternalLink, Quote, Search, Pen, Code, Rocket, ShieldCheck, CheckCircle } from "lucide-react";
+import { ArrowRight, Eye, MessageSquare, Zap, TrendingUp, ZapIcon, Target, ChevronDown, ExternalLink, Quote, Search, Pen, Code, Rocket, ShieldCheck, CheckCircle } from "lucide-react";
 import HeroSlider from "@/components/HeroSlider";
 import HeroDashboard from "@/components/HeroDashboard";
 import { H2, H3, Body, Small, Caption } from "@/components/Typography";
@@ -16,13 +16,58 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Segun Owolabi",
-  "description": "Custom web software and automation systems for service businesses",
+  "description": "Custom lead generation websites and business automation for service businesses",
   "url": "https://segun-owolabi.vercel.app",
-  "email": "olujawo1996@gmail.com",
+  "email": "olusegun.work@gmail.com",
   "address": { "@type": "PostalAddress", "addressCountry": "NG" },
   "areaServed": ["NG", "Worldwide"],
   "serviceType": ["Web Development", "Business Automation", "Lead Generation"],
-  "image": "https://segun-owolabi.vercel.app/og-image.jpg"
+  "image": "https://segun-owolabi.vercel.app/og-image.jpg",
+  "sameAs": [
+    "https://linkedin.com/in/owolabi-olusegun",
+    "https://github.com/boarnerges"
+  ]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Lead Generation Websites",
+  "description": "Custom websites built to rank on Google and generate qualified leads for service businesses",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Segun Owolabi"
+  },
+  "areaServed": ["NG", "Worldwide"],
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "NGN",
+    "price": "300000"
+  }
+};
+
+const faqData = [
+  { q: "How long does it take to build a website or system?", a: "Most lead-generation websites take 2-3 weeks from kickoff to launch. More complex systems (booking portals, automation dashboards) typically take 4-6 weeks. I'll give you a precise timeline after our discovery call." },
+  { q: "Can you work with my existing website or brand?", a: "Yes, absolutely. I'm happy to integrate with your existing brand, design language, and colour palette. If you want a complete rebrand, I handle that too. We discuss this during the discovery call." },
+  { q: "What tools and platforms do you use?", a: "I build custom systems tailored to what you need. I typically use Next.js and React for fast, modern front-ends, with Node.js or Python on the backend depending on requirements. For integrations I work with Make.com, Zapier, or your existing tools. The goal is always: you're not locked into me or any platform. Everything is transferable." },
+  { q: "How quickly do you respond?", a: "I respond to all enquiries within 2 hours during business hours (Monday-Friday, 9 AM - 6 PM WAT). For urgent matters, you can reach me by phone for immediate assistance." },
+  { q: "What happens after my system launches?", a: "Every project includes handover training so you understand the system, 6 months of free updates and support, a 2-hour response time guarantee for urgent issues, and direct access to me by email or phone. After 6 months, you can maintain it yourself or arrange ongoing support on a retainer basis." },
+  { q: "What if I want to change things mid-project?", a: "We start with a clear, fixed-price scope before any code is written. If changes come up mid-project, I provide a transparent change order with the cost and timeline adjustment. In practice, over 90% of clients don't need scope changes because we nail the requirements during the discovery call." },
+  { q: "What if the results don't meet expectations?", a: "That's exactly why I offer a 90-day guarantee. If within 90 days of launch you don't see at least 20% increase in qualified enquiries, I'll optimise the system for free until you do. If we still haven't hit that target by day 180, you get a full refund. Your success is my success." },
+  { q: "What do you need from me to get started?", a: "Just a clear picture of your business and what you want to achieve. I'll handle the strategy, design, development, and launch — you focus on running your business." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
 };
 
 export default function Home() {
@@ -63,6 +108,14 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Background Decorative Gradients */}
       <div className="absolute top-0 left-1/4 -z-10 h-[500px] w-[500px] rounded-full bg-brand-primary/5 blur-[120px] dark:bg-brand-primary/10" />
       <div className="absolute top-1/3 right-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-brand-primary/5 blur-[100px] dark:bg-brand-primary/10" />
@@ -74,7 +127,7 @@ export default function Home() {
             <HeroSlider />
 
             {/* CTA Buttons — single primary action */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <div className="flex items-center justify-center mt-8">
             <motion.a
               href="https://calendly.com/olujawo1996"
               target="_blank"
@@ -88,15 +141,6 @@ export default function Home() {
               <span>Book Free Strategy Call</span>
               <ArrowRight className="ml-2 h-4 w-4" />
             </motion.a>
-            
-            <Link
-              href="/projects"
-              className={`text-sm font-semibold underline underline-offset-4 transition-colors duration-200 ${
-                theme === "dark" ? "text-slate-400 hover:text-white" : "text-slate-500 hover:text-slate-900"
-              }`}
-            >
-              View Case Studies
-            </Link>
             </div>
           </div>
         </div>
@@ -128,35 +172,47 @@ export default function Home() {
               <Body className={`mt-3 ${theme === "dark" ? "text-slate-400" : "text-slate-600"}`}>
                 No templates. No generic SaaS. Just purpose-built systems tailored to how you actually work.
               </Body>
+              <div className={`mt-4 p-4 rounded-xl border ${theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-slate-50 border-slate-200"}`}>
+                <p className={`text-xs font-semibold uppercase tracking-wider mb-1 ${theme === "dark" ? "text-slate-400" : "text-slate-500"}`}>Team & Capacity</p>
+                <Small className={theme === "dark" ? "text-slate-300" : "text-slate-700"}>
+                  I work with a small team of developers and designers to ensure your project gets specialized expertise. This means faster delivery, backup support, and higher quality — while I remain your direct contact.
+                </Small>
+              </div>
             </div>
           </div>
         </div>
       </motion.section>
 
       {/* Client Logos */}
-      <motion.section {...fadeInUp} className="py-12 sm:py-16">
+      <motion.section {...fadeInUp} className="py-12 sm:py-16 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Caption className="block text-center mb-8" style={{ color: "var(--card-text-muted)" }}>
             Trusted by Business Owners Like You
           </Caption>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center max-w-3xl mx-auto">
-            {[
-              { name: "CPAW Studio", type: "Creative Agency" },
-              { name: "Joyix Ushering", type: "Event Staffing" },
-              { name: "Dapo Awobeku", type: "Health Advisory" },
-              { name: "Flash-J Mechatronics", type: "Renewable Energy" },
-            ].map((client) => (
-              <div key={client.name} className={`text-center px-4 py-3 rounded-xl border ${
-                theme === "dark"
-                  ? "border-slate-800 bg-slate-900/20"
-                  : "border-slate-200 bg-slate-50/50"
-              }`}>
-                <p className="text-sm font-bold font-heading">{client.name}</p>
-                <p className={`text-[10px] mt-0.5 ${
-                  theme === "dark" ? "text-slate-500" : "text-slate-400"
-                }`}>{client.type}</p>
-              </div>
-            ))}
+            <div className="marquee-container relative flex overflow-hidden max-w-3xl mx-auto">
+              <div className="marquee-track flex gap-16 items-center">
+                {[...Array(2)].map((_, groupIndex) => (
+                  <div key={groupIndex} className="flex gap-16 items-center">
+                  {[
+                    { name: "CPAW Studio", type: "Creative Agency" },
+                    { name: "Joyix Ushering", type: "Event Staffing" },
+                    { name: "Dapo Awobeku", type: "Health Advisory" },
+                    { name: "Flash-J Mechatronics", type: "Renewable Energy" },
+                  ].map((client) => (
+                    <div key={client.name} className={`flex-shrink-0 text-center px-4 py-3 rounded-xl border ${
+                      theme === "dark"
+                        ? "border-slate-800 bg-slate-900/20"
+                        : "border-slate-200 bg-slate-50/50"
+                    }`}>
+                      <p className="text-sm font-bold font-heading whitespace-nowrap">{client.name}</p>
+                      <p className={`text-[10px] mt-0.5 whitespace-nowrap ${
+                        theme === "dark" ? "text-slate-500" : "text-slate-400"
+                      }`}>{client.type}</p>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.section>
@@ -196,7 +252,7 @@ export default function Home() {
               </div>
               <H3 className="mb-3">Lead-Generating Websites</H3>
               <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
-                Websites that rank on Google for the searches your ideal clients make. You wake up to new enquiries without spending on ads.
+                Websites that rank on Google for local searches. Interior designers find clients searching &ldquo;interior design in Lagos.&rdquo; Accountants get found by &ldquo;accounting services in Abuja.&rdquo; Your ideal clients find you instead of competitors.
               </Small>
             </motion.div>
 
@@ -210,7 +266,7 @@ export default function Home() {
               </div>
               <H3 className="mb-3">Enquiry Management</H3>
               <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
-                Every lead captured. From first message to signed contract — nothing slips through WhatsApp DMs or scattered emails. Complete visibility in one place.
+                Every lead organized in one place. Instagram DMs, WhatsApp, email — all funnel to one dashboard. You see who messaged, when they messaged, and exactly where they are in the process. Nothing falls through the cracks.
               </Small>
             </motion.div>
 
@@ -224,7 +280,7 @@ export default function Home() {
               </div>
               <H3 className="mb-3">Business Automation</H3>
               <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
-                Workflows that run 24/7 without you. Follow-ups happen automatically. Tasks get assigned. Emails send. Your team stays productive while you focus on delivery.
+                Workflows that run while you sleep. New lead comes in → auto-response sent → task created for your team → follow-up scheduled → quote prepared. All without you doing anything. You focus on delivery, not admin.
               </Small>
             </motion.div>
           </motion.div>
@@ -269,8 +325,22 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Case studies referral link */}
+      <motion.section {...fadeInUp} className="py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <Small className={theme === "dark" ? "text-slate-400" : "text-slate-500"}>
+              Want to see proof before booking?{" "}
+              <a href="#case-studies" className="text-brand-primary underline underline-offset-4 font-semibold hover:opacity-80 transition-opacity">
+                View case studies below
+              </a>
+            </Small>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Case Studies — proof with metrics */}
-      <motion.section {...fadeInUp} className={`py-16 border-y ${
+      <motion.section {...fadeInUp} id="case-studies" className={`py-16 border-y ${
         theme === "dark" ? "bg-slate-950/30 border-slate-900" : "bg-slate-50/50 border-slate-250"
       }`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -461,21 +531,53 @@ export default function Home() {
             </Small>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              { title: "Built for Service Businesses", desc: "I've built systems for creative agencies, design studios, consultancies, and professional services. I understand your model because I've solved these problems dozens of times. No learning curve.", icon: Wrench },
-              { title: "Direct Access, Not an Email Queue", desc: "You get my direct number and email. Questions answered in hours, not days. No project managers, no ticket queues. The person building your system is the person you talk to every day.", icon: ZapIcon },
-              { title: "Accountability for Results", desc: "You're not paying for hours or deliverables. You're paying for enquiry flow. I measure success by the leads you capture and convert, not my billable hours.", icon: Target },
-            ].map((item) => (
-              <div key={item.title} className={`p-8 rounded-2xl border text-center transition-all duration-300 hover:scale-[1.01] hover:shadow-md ${
-                theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
-              }`}>
-                <div className="h-12 w-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mx-auto mb-4">
-                  <item.icon className="h-6 w-6" />
-                </div>
-                <H3 className="mb-2">{item.title}</H3>
-                <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>{item.desc}</Small>
+            <div className={`md:col-span-1 p-6 sm:p-8 rounded-2xl border-l-4 border-brand-primary flex flex-col justify-center ${
+              theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
+            }`}>
+              <div className="h-10 w-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-4">
+                <Code className="h-5 w-5" />
               </div>
-            ))}
+              <H3 className="mb-2">You Watch It Being Built</H3>
+              <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
+                Most developers disappear until launch day. I don't. You see progress every 3 days — weekly video calls show exactly what was built, what's next, and whether we need to pivot. This removes 80% of revision cycles because we course-correct in real-time.
+              </Small>
+              <p className={`text-xs font-semibold text-brand-primary mt-4 flex items-center space-x-1 ${
+                theme === "dark" ? "" : ""
+              }`}>
+                <span className="text-base leading-none">→</span>
+                <span>Most agencies hide. I show.</span>
+              </p>
+            </div>
+
+            <div className={`p-6 sm:p-8 rounded-2xl border flex flex-col justify-center ${
+              theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
+            }`}>
+              <div className="h-10 w-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-4">
+                <ZapIcon className="h-5 w-5" />
+              </div>
+              <H3 className="mb-2">Direct Access</H3>
+              <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
+                Questions answered in 2 hours, not days. You get my direct email and phone number. No project managers, no ticket queues. The person building your system answers when you call.
+              </Small>
+              <p className={`text-xs font-semibold text-brand-primary mt-3 flex items-center space-x-1 ${
+                theme === "dark" ? "" : ""
+              }`}>
+                <CheckCircle className="h-3.5 w-3.5" />
+                <span>I respond within 2 hours (Mon-Fri, 9 AM - 6 PM WAT)</span>
+              </p>
+            </div>
+
+            <div className={`p-6 sm:p-8 rounded-2xl border flex flex-col justify-center ${
+              theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
+            }`}>
+              <div className="h-10 w-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-4">
+                <Target className="h-5 w-5" />
+              </div>
+              <H3 className="mb-2">Accountability for Results</H3>
+              <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
+                You're not paying for hours or deliverables. You're paying for enquiry flow. I measure success by leads you capture and convert, not my billable hours. My success = your enquiries going up.
+              </Small>
+            </div>
           </div>
         </div>
       </motion.section>
@@ -551,6 +653,116 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Pricing */}
+      <motion.section {...fadeInUp} className={`py-16 ${theme === "dark" ? "bg-slate-950/10" : "bg-white"}`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
+            <H2>Transparent Pricing</H2>
+            <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
+              Fixed prices based on what you need. No surprises, no hidden fees.
+            </Small>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+            <div className={`p-6 sm:p-8 rounded-2xl border flex flex-col ${
+              theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
+            }`}>
+              <Caption className="text-brand-primary font-semibold mb-1">Lead-Generating Website</Caption>
+              <p className="text-3xl font-bold font-heading mb-6">₦300,000+</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>SEO-optimised pages that rank locally</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Lead capture forms with auto-notifications</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Mobile-responsive design</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>CMS included — you can update content</Small></li>
+              </ul>
+              <a
+                href="https://calendly.com/olujawo1996"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 text-center"
+              >
+                Get Started
+              </a>
+            </div>
+
+            <div className={`p-6 sm:p-8 rounded-2xl border flex flex-col relative ${
+              theme === "dark" ? "bg-slate-900/60 border-brand-primary/40" : "bg-white border-brand-primary/30 shadow-md"
+            }`}>
+              <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                theme === "dark" ? "bg-brand-primary text-white" : "bg-brand-primary text-white"
+              }`}>Most Popular</div>
+              <Caption className="text-brand-primary font-semibold mb-1">Enquiry Management</Caption>
+              <p className="text-3xl font-bold font-heading mb-6">₦450,000+</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Custom enquiry portal with dashboard</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Lead tracking from first contact to close</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Automated follow-ups & notifications</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>CRM integration ready</Small></li>
+              </ul>
+              <a
+                href="https://calendly.com/olujawo1996"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 text-center"
+              >
+                Get Started
+              </a>
+            </div>
+
+            <div className={`p-6 sm:p-8 rounded-2xl border flex flex-col ${
+              theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200 shadow-sm"
+            }`}>
+              <Caption className="text-brand-primary font-semibold mb-1">Business Automation</Caption>
+              <p className="text-3xl font-bold font-heading mb-6">₦1,000,000+</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Complete workflow automation</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Multi-tool integration (Slack, email, WhatsApp)</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Custom dashboards & reporting</Small></li>
+                <li className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Team training & documentation</Small></li>
+              </ul>
+              <a
+                href="https://calendly.com/olujawo1996"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 text-center"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+
+          <div className={`max-w-3xl mx-auto p-6 sm:p-8 rounded-2xl border ${
+            theme === "dark" ? "bg-slate-900/30 border-slate-800" : "bg-slate-50 border-slate-200"
+          }`}>
+            <H3 className="text-center mb-4">What Determines Your Final Price?</H3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+              <div className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Which features you need</Small></div>
+              <div className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Which tools we're integrating with</Small></div>
+              <div className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Complexity of your workflows</Small></div>
+              <div className="flex items-start space-x-2"><CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" /><Small>Timeline (rush projects cost more)</Small></div>
+            </div>
+            <p className={`text-center text-sm font-semibold mt-6 ${theme === "dark" ? "text-slate-300" : "text-slate-700"}`}>
+              All projects include 3-4 week delivery, direct access, and 90-day guarantee.
+            </p>
+          </div>
+
+          <div className="text-center mt-8 space-y-3">
+            <Small className={theme === "dark" ? "text-slate-400" : "text-slate-500"}>
+              Not sure what you need? Book a free strategy call and I'll give you a fixed price.
+            </Small>
+            <a
+              href="https://calendly.com/olujawo1996"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 h-11 rounded-xl bg-brand-primary px-6 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200"
+            >
+              <span>Get Your Free Pricing Quote</span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </motion.section>
+
       {/* FAQ */}
       <motion.section {...fadeInUp} className={`py-16 ${
         theme === "dark" ? "bg-slate-950/20" : "bg-slate-50/50"
@@ -563,13 +775,7 @@ export default function Home() {
             </Small>
           </div>
           <div className="space-y-3">
-            {[
-              { q: "How long does it take to build a website or system?", a: "Most lead-generation websites take 2-3 weeks from kickoff to launch. More complex systems (booking portals, automation dashboards) typically take 4-6 weeks. I'll give you a precise timeline after our discovery call." },
-              { q: "What does a typical project cost?", a: "Projects range from ₦300,000 for a lead-generation website to ₦2,000,000+ for an advanced business automation system. I'll provide a fixed-price quote after understanding your needs — no surprises, no hidden fees." },
-              { q: "What happens after we start working together?", a: "We begin with a strategy call to map out your goals, then I design and build your system in stages. You'll see progress throughout and have direct input at every milestone." },
-              { q: "Do you offer ongoing support after launch?", a: "Yes. Every project includes a handover period where I ensure everything runs smoothly. Ongoing maintenance and updates are available on a retainer basis." },
-              { q: "What do you need from me to get started?", a: "Just a clear picture of your business and what you want to achieve. I'll handle the strategy, design, development, and launch — you focus on running your business." },
-            ].map((faq, i) => (
+            {faqData.map((faq, i) => (
               <div key={i} className={`rounded-xl border overflow-hidden transition-all duration-200 ${
                 theme === "dark" ? "bg-slate-900/40 border-slate-800" : "bg-white border-slate-200"
               }`}>
@@ -585,7 +791,7 @@ export default function Home() {
                   }`} />
                 </button>
                 <div className={`px-6 overflow-hidden transition-all duration-200 ${
-                  openFaq === i ? "pb-4 max-h-40" : "max-h-0 pb-0"
+                  openFaq === i ? "pb-4 max-h-96" : "max-h-0 pb-0"
                 }`}>
                   <Small className={theme === "dark" ? "text-slate-400" : "text-slate-600"}>
                     {faq.a}
@@ -625,13 +831,24 @@ export default function Home() {
             <div className="h-12 w-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mx-auto mb-6">
               <ShieldCheck className="h-6 w-6" />
             </div>
-            <H3 className="mb-4">No-Risk Guarantee</H3>
-            <Body className={`mb-6 ${theme === "dark" ? "text-slate-300" : "text-slate-700"}`}>
-              If within 90 days of launch you haven't seen a measurable increase in qualified enquiries, we'll keep optimizing your system for free until you do.
+            <H3 className="mb-4">90-Day No-Risk Guarantee</H3>
+            <Body className={`font-semibold mb-4 ${theme === "dark" ? "text-slate-200" : "text-slate-800"}`}>
+              At least 20% increase in qualified enquiries.
             </Body>
-            <Small className={theme === "dark" ? "text-slate-400" : "text-slate-500"}>
-              Your success is our success. We don't get paid unless you get results.
-            </Small>
+            <ul className={`space-y-3 text-left max-w-md mx-auto mb-6 ${theme === "dark" ? "text-slate-300" : "text-slate-700"}`}>
+              <li className="flex items-start space-x-2">
+                <CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" />
+                <Small>If you don't see 20%+ more qualified enquiries in 90 days, we optimize for free through day 180.</Small>
+              </li>
+              <li className="flex items-start space-x-2">
+                <CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" />
+                <Small>If we still don't hit 20% by day 180, you get a full refund — no questions asked.</Small>
+              </li>
+              <li className="flex items-start space-x-2">
+                <CheckCircle className="h-4 w-4 text-brand-primary mt-0.5 flex-shrink-0" />
+                <Small>Your success is our success. We don't get paid unless you get results.</Small>
+              </li>
+            </ul>
           </div>
         </div>
       </motion.section>
@@ -657,6 +874,10 @@ export default function Home() {
           </div>
 
           <div className="w-full lg:w-auto text-center space-y-3">
+            <div className={`inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border text-xs font-semibold ${theme === "dark" ? "bg-slate-900 border-slate-700 text-slate-300" : "bg-slate-50 border-slate-200 text-slate-600"}`}>
+              <CheckCircle className="h-3.5 w-3.5 text-brand-primary" />
+              <span>Respond within 2 hours · No hidden fees · 90-day guarantee</span>
+            </div>
             <a
               href="https://calendly.com/olujawo1996"
               target="_blank"
@@ -667,7 +888,7 @@ export default function Home() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>
             <Small className={theme === "dark" ? "text-slate-500" : "text-slate-400"}>
-              Most projects ship in 3–4 weeks · Starting at ₦300,000
+              Most projects ship in 3–4 weeks · From ₦300,000
             </Small>
           </div>
         </div>

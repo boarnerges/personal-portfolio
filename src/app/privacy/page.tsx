@@ -18,7 +18,7 @@ export default function Privacy() {
         <p>Your information is used only to communicate with you about your project enquiry. I do not share your data with third parties, sell it, or use it for marketing purposes without your consent.</p>
         
         <h2 className="text-lg font-bold font-heading text-slate-800 dark:text-white">Data Storage</h2>
-        <p>Contact form submissions are stored securely and retained only as long as needed to complete your project or respond to your enquiry. You may request deletion of your data at any time by emailing olujawo1996@gmail.com.</p>
+        <p>Contact form submissions are stored securely and retained only as long as needed to complete your project or respond to your enquiry. You may request deletion of your data at any time by emailing olusegun.work@gmail.com.</p>
         
         <h2 className="text-lg font-bold font-heading text-slate-800 dark:text-white">Cookies</h2>
         <p>This website uses a theme preference cookie (dark/light mode) stored locally in your browser. No tracking cookies, analytics cookies, or third-party cookies are used.</p>
@@ -27,7 +27,7 @@ export default function Privacy() {
         <p>This website is hosted on Vercel. Vercel may collect standard server logs (IP address, browser type, pages visited) for operational purposes. Please refer to Vercel&apos;s privacy policy for more details.</p>
         
         <h2 className="text-lg font-bold font-heading text-slate-800 dark:text-white">Contact</h2>
-        <p>For questions about this policy or to request data deletion, contact: <a href="mailto:olujawo1996@gmail.com" className="text-brand-primary hover:underline">olujawo1996@gmail.com</a></p>
+        <p>For questions about this policy or to request data deletion, contact: <a href="mailto:olusegun.work@gmail.com" className="text-brand-primary hover:underline">olusegun.work@gmail.com</a></p>
         
         <p className="text-xs text-slate-500 dark:text-slate-500 pt-6">Last updated: June 2026</p>
       </div>

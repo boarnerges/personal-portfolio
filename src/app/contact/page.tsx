@@ -215,7 +215,7 @@ export default function Contact() {
           {status === "success" ? (
             /* Success State */
             <div className="text-center py-12 space-y-6 flex flex-col items-center">
-              <div className="h-16 w-16 rounded-2xl bg-brand-primary/15 text-brand-primary flex items-center justify-center shadow-[0_0_20px_rgba(4,120,87,0.2)]">
+              <div className="h-16 w-16 rounded-2xl bg-brand-primary/15 text-brand-primary flex items-center justify-center shadow-[0_0_20px_rgba(139,101,8,0.2)]">
                 <CheckCircle2 className="h-10 w-10" />
               </div>
               <div className="space-y-2">
@@ -247,12 +247,15 @@ export default function Contact() {
 
               {/* Full Name */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider">Full Name</label>
+                <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider">Full Name</label>
                 <input
+                  id="name"
                   type="text"
                   placeholder="e.g. John Doe"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? "name-error" : undefined}
                   className={`w-full px-4 py-3 text-sm rounded-xl outline-none transition-all duration-200 border ${
                     errors.name
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
@@ -262,7 +265,7 @@ export default function Contact() {
                   }`}
                 />
                 {errors.name && (
-                  <p className="text-xs text-red-500 flex items-center gap-1.5 mt-1">
+                  <p id="name-error" className="text-xs text-red-500 flex items-center gap-1.5 mt-1">
                     <AlertCircle className="h-3.5 w-3.5" />
                     <span>{errors.name}</span>
                   </p>
@@ -271,12 +274,15 @@ export default function Contact() {
 
               {/* Email Address */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider">Email Address</label>
+                <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider">Email Address</label>
                 <input
+                  id="email"
                   type="email"
                   placeholder="e.g. name@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                   className={`w-full px-4 py-3 text-sm rounded-xl outline-none transition-all duration-200 border ${
                     errors.email
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
@@ -286,7 +292,7 @@ export default function Contact() {
                   }`}
                 />
                 {errors.email && (
-                  <p className="text-xs text-red-500 flex items-center gap-1.5 mt-1">
+                  <p id="email-error" className="text-xs text-red-500 flex items-center gap-1.5 mt-1">
                     <AlertCircle className="h-3.5 w-3.5" />
                     <span>{errors.email}</span>
                   </p>
@@ -295,8 +301,9 @@ export default function Contact() {
 
               {/* Service Type Selection */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider">Project Focus Type</label>
+                <label htmlFor="projectType" className="text-xs font-bold uppercase tracking-wider">Project Focus Type</label>
                 <select
+                  id="projectType"
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
                   className={`w-full px-4 py-3 text-sm rounded-xl outline-none border cursor-pointer ${
@@ -314,12 +321,15 @@ export default function Contact() {
 
               {/* Project Description Details */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider">Project Details / Pain points</label>
+                <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider">Project Details / Pain points</label>
                 <textarea
+                  id="message"
                   rows={4}
                   placeholder="Tell me about what manual workflows you want to resolve or what you want your visitors to do..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? "message-error" : undefined}
                   className={`w-full px-4 py-3 text-sm rounded-xl outline-none transition-all duration-200 border resize-none ${
                     errors.message
                       ? "border-red-500/50 bg-red-500/5 focus:bg-red-500/5"
@@ -329,7 +339,7 @@ export default function Contact() {
                   }`}
                 />
                 {errors.message && (
-                  <p className="text-xs text-red-500 flex items-center gap-1.5 mt-1">
+                  <p id="message-error" className="text-xs text-red-500 flex items-center gap-1.5 mt-1">
                     <AlertCircle className="h-3.5 w-3.5" />
                     <span>{errors.message}</span>
                   </p>
@@ -351,7 +361,7 @@ export default function Contact() {
                 className={`w-full inline-flex h-12 items-center justify-center rounded-xl bg-brand-primary font-bold text-white shadow-md transition-all duration-200 cursor-pointer ${
                   status === "loading"
                     ? "opacity-80 cursor-wait bg-brand-primary/90"
-                    : "hover:bg-brand-primary/90 hover:shadow-[0_0_20px_rgba(4,120,87,0.3)] hover:scale-[1.01]"
+                    : "hover:bg-brand-primary/90 hover:shadow-[0_0_20px_rgba(139,101,8,0.3)] hover:scale-[1.01]"
                 }`}
               >
                 {status === "loading" ? (

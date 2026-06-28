@@ -23,12 +23,12 @@ export const portfolioConfig = {
     title: "Helping Service Businesses Grow with Software & Automation",
     tagline: "Helping service businesses grow with lead-generating websites, enquiry management, and business automation.",
     about: "I build custom websites and software that help service businesses attract customers, manage enquiries, and automate their operations. Every project is purpose-built — from SEO-tuned landing pages that rank on Google to booking portals and automated workflows that replace manual spreadsheets.",
-    email: "olujawo1996@gmail.com",
+    email: "olusegun.work@gmail.com",
     calendly: "https://calendly.com/olujawo1996",
     socials: {
       linkedin: "http://linkedin.com/in/owolabi-olusegun/",
       github: "https://github.com/boarnerges",
-      email: "mailto:olujawo1996@gmail.com"
+      email: "mailto:olusegun.work@gmail.com"
     }
   },
   

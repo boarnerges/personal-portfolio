@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { portfolioConfig } from "@/config/portfolio";
 import { useTheme } from "./ThemeContext";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, Clock, ShieldCheck, UserCheck } from "lucide-react";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -109,7 +109,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className={`inline-flex h-10 w-full items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 mt-2 ${
-                theme === "dark" ? "hover:shadow-[0_0_15px_rgba(4,120,87,0.3)]" : ""
+                theme === "dark" ? "hover:shadow-[0_0_15px_rgba(139,101,8,0.3)]" : ""
               }`}
             >
               Book Free Strategy Call
@@ -126,6 +126,22 @@ export default function Footer() {
             </a>
           </div>
 
+        </div>
+
+        {/* Trust Badges */}
+        <div className={`my-8 flex flex-wrap items-center justify-center gap-4 sm:gap-8 py-4 border-y ${
+          theme === "dark" ? "border-slate-800" : "border-slate-200"
+        }`}>
+          {[
+            { icon: Clock, text: "2-Hour Response" },
+            { icon: UserCheck, text: "Direct Access" },
+            { icon: ShieldCheck, text: "90-Day Guarantee" },
+          ].map((badge) => (
+            <div key={badge.text} className="flex items-center space-x-2">
+              <badge.icon className={`h-4 w-4 ${theme === "dark" ? "text-brand-primary" : "text-brand-primary"}`} />
+              <span className={`text-xs font-semibold ${theme === "dark" ? "text-slate-400" : "text-slate-500"}`}>{badge.text}</span>
+            </div>
+          ))}
         </div>
 
         {/* Divider */}

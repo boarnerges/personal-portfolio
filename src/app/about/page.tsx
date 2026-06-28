@@ -186,7 +186,7 @@ export default function About() {
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center space-x-1.5 h-12 rounded-xl bg-brand-primary px-6 text-sm font-bold text-white hover:bg-brand-primary/90 transition-all duration-200 hover:shadow-[0_0_20px_rgba(4,120,87,0.3)]"
+          className="inline-flex items-center space-x-1.5 h-12 rounded-xl bg-brand-primary px-6 text-sm font-bold text-white hover:bg-brand-primary/90 transition-all duration-200 hover:shadow-[0_0_20px_rgba(139,101,8,0.3)]"
         >
           <span>Start a Conversation</span>
           <ArrowRight className="h-4 w-4" />

@@ -20,9 +20,9 @@ export default function Navbar() {
   ];
 
   const services = [
-    { name: "Lead-Generating Websites", href: "/about" },
-    { name: "Enquiry Management", href: "/about" },
-    { name: "Business Automation", href: "/about" },
+    { name: "Lead-Generating Websites", href: "/services/lead-generation-websites" },
+    { name: "Enquiry Management", href: "/services/enquiry-management" },
+    { name: "Business Automation", href: "/services/business-automation" },
   ];
 
   const isActive = (href: string) => {
@@ -137,7 +137,7 @@ export default function Navbar() {
             href={portfolioConfig.personal.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-10 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_15px_rgba(4,120,87,0.3)] hover:scale-[1.02]"
+            className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-primary px-5 text-sm font-semibold text-white shadow-md hover:bg-brand-primary/90 transition-all duration-200 cursor-pointer hover:shadow-[0_0_15px_rgba(139,101,8,0.3)] hover:scale-[1.02]"
           >
             Book Free Strategy Call
           </a>
